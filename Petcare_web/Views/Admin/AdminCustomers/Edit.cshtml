@@ -1,0 +1,61 @@
+﻿@model Petcare_web.Models.DTO.KhachHangDTO
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chỉnh sửa khách hàng";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">✏️ @ViewData["Title"]</h3>
+        <a asp-action="Index" class="btn btn-secondary btn-sm">← Quay lại</a>
+    </div>
+
+    <div class="card-body">
+        <form method="post" asp-action="Edit" asp-route-id="@Model.MaKhachHang">
+            <input type="hidden" asp-for="MaKhachHang" />
+
+            @if (ViewData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+            }
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+            }
+
+            <div class="form-group">
+                <label asp-for="HoTen" class="form-label">Họ tên</label>
+                <input asp-for="HoTen" class="form-input" />
+                <span asp-validation-for="HoTen" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SoDienThoai" class="form-label">Số điện thoại</label>
+                <input asp-for="SoDienThoai" class="form-input" />
+                <span asp-validation-for="SoDienThoai" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DiaChi" class="form-label">Địa chỉ</label>
+                <input asp-for="DiaChi" class="form-input" />
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NgaySinh" class="form-label">Ngày sinh</label>
+                <input asp-for="NgaySinh" type="date" class="form-input" />
+                <span asp-validation-for="NgaySinh" class="text-danger"></span>
+            </div>
+
+            <div style="margin-top: 30px; display: flex; gap: 12px;">
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

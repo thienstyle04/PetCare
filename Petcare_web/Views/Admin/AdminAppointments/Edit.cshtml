@@ -1,0 +1,66 @@
+﻿@using Petcare_web.Models.DTO
+@model Petcare_web.Models.DTO.UpdateLichHenDTO
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chỉnh sửa Lịch hẹn";
+    var currentAppointment = ViewBag.CurrentAppointment as LichHenDTO;
+}
+
+<div class="card">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="card-title">@ViewData["Title"] #@currentAppointment?.MaLichHen</h3>
+        <a asp-action="Index" class="btn btn-secondary">← Quay lại</a>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-action="Edit" asp-route-id="@currentAppointment?.MaLichHen">
+            @if (ViewData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+            }
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div>
+                    <label class="form-label" style="font-weight: 600;">Khách hàng</label>
+                    <p style="margin: 0; padding: 10px 0; color: #4b5563;">@currentAppointment?.TenKhachHang</p>
+                </div>
+                <div>
+                    <label class="form-label" style="font-weight: 600;">Thú cưng</label>
+                    <p style="margin: 0; padding: 10px 0; color: #4b5563;">@currentAppointment?.TenThuCung</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MaNhanVien" class="form-label">Nhân viên phụ trách</label>
+                <select asp-for="MaNhanVien" class="form-select" asp-items="@ViewBag.Staff">
+                </select>
+                <span asp-validation-for="MaNhanVien" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NgayGioHen" class="form-label">Thời gian hẹn</label>
+                <input asp-for="NgayGioHen" type="datetime-local" class="form-input" value="@currentAppointment?.NgayGioHen.ToString("yyyy-MM-ddTHH:mm")" />
+                <span asp-validation-for="NgayGioHen" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TrangThai" class="form-label">Trạng thái</label>
+                <input asp-for="TrangThai" class="form-input" />
+                <span asp-validation-for="TrangThai" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="GhiChu" class="form-label">Ghi chú</label>
+                <textarea asp-for="GhiChu" class="form-textarea" rows="3"></textarea>
+            </div>
+
+            <div style="margin-top: 30px; display: flex; gap: 12px;">
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,113 @@
+﻿@model List<PetCare_web.Models.DTO.NhanVienDTO>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Quản lý nhân viên";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@ViewData["Title"]</h3>
+        <a href="/Admin/Staff/Create" class="btn btn-primary">
+            + Thêm Nhân Viên
+        </a>
+    </div>
+
+    <div class="card-body">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã NV</th>
+                    <th>Họ Tên</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Chức Vụ</th>
+                    <th>Ngày Vào Làm</th>
+                    <th>Trạng Thái</th>
+                    <th>Tài Khoản</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>#@item.MaNhanVien</td>
+                            <td><strong>@item.HoTen</strong></td>
+                            <td>@(item.SoDienThoai ?? "N/A")</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.ChucVu))
+                                {
+                                    <span class="badge badge-info">@item.ChucVu</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Chưa xác định</span>
+                                }
+                            </td>
+                            <td>@(item.NgayVaoLam?.ToString("dd/MM/yyyy") ?? "N/A")</td>
+                            <td>
+                                @if (item.TrangThai)
+                                {
+                                    <span class="badge badge-success">Hoạt động</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">Ngừng hoạt động</span>
+                                }
+                            </td>
+                            <td>
+                                @if (item.NguoiDung != null)
+                                {
+                                    <small class="text-muted">
+                                        @item.NguoiDung.TenDangNhap<br />
+                                        @item.NguoiDung.Email
+                                    </small>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">N/A</span>
+                                }
+                            </td>
+                            <td>
+                                <a href="/Admin/Staff/Edit/@item.MaNhanVien"
+                                   class="btn btn-secondary btn-sm">
+                                    Sửa
+                                </a>
+                                <a href="/Admin/Staff/Delete/@item.MaNhanVien"
+                                   class="btn btn-danger btn-sm"
+                                   onclick="return confirm('Bạn có chắc chắn muốn xóa nhân viên này?')">
+                                    Xóa
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="8" class="text-center text-muted">
+                            Không có nhân viên nào
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

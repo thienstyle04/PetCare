@@ -1,0 +1,103 @@
+﻿@model PetCare_web.Models.DTO.NhanVienDTO
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chỉnh sửa nhân viên";
+}
+
+<div class="card">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="card-title">@ViewData["Title"]</h3>
+        <a asp-action="Index" class="btn btn-secondary">← Quay lại</a>
+    </div>
+
+    <div class="card-body">
+        <form method="post" asp-action="Edit" asp-route-id="@Model.MaNhanVien">
+            <input type="hidden" asp-for="MaNhanVien" />
+            <input type="hidden" asp-for="MaNguoiDung" />
+
+            @if (ViewData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+            }
+
+            <!-- Thông tin cá nhân -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                    <label asp-for="HoTen" class="form-label">Họ và tên</label>
+                    <input asp-for="HoTen" class="form-input" />
+                    <span asp-validation-for="HoTen" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SoDienThoai" class="form-label">Số điện thoại</label>
+                    <input asp-for="SoDienThoai" class="form-input" />
+                    <span asp-validation-for="SoDienThoai" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                    <label asp-for="ChucVu" class="form-label">Chức vụ</label>
+                    <input asp-for="ChucVu" class="form-input" />
+                    <span asp-validation-for="ChucVu" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="NgayVaoLam" class="form-label">Ngày vào làm</label>
+                    <input asp-for="NgayVaoLam" type="date" class="form-input" />
+                    <span asp-validation-for="NgayVaoLam" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TrangThai" class="form-label">Trạng thái</label>
+                <select asp-for="TrangThai" class="form-select">
+                    <option value="true">Đang làm việc</option>
+                    <option value="false">Nghỉ việc</option>
+                </select>
+                <span asp-validation-for="TrangThai" class="text-danger"></span>
+            </div>
+
+            <!-- Thông tin tài khoản -->
+            @if (Model.NguoiDung != null)
+            {
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+                    <h5 style="color: #6b7280; margin-bottom: 20px; font-weight: 600;">Thông tin tài khoản</h5>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label class="form-label">Tên đăng nhập</label>
+                            <input class="form-input" value="@Model.NguoiDung.TenDangNhap" readonly style="background-color: #f9fafb; cursor: not-allowed;" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input class="form-input" value="@Model.NguoiDung.Email" readonly style="background-color: #f9fafb; cursor: not-allowed;" />
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label class="form-label">Vai trò</label>
+                            <input class="form-input" value="@Model.NguoiDung.VaiTro" readonly style="background-color: #f9fafb; cursor: not-allowed;" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Ngày tạo tài khoản</label>
+                            <input class="form-input" value="@Model.NguoiDung.NgayTao.ToString("dd/MM/yyyy")" readonly style="background-color: #f9fafb; cursor: not-allowed;" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div style="margin-top: 30px; display: flex; gap: 12px; justify-content: space-between;">
+                <a asp-action="Index" class="btn btn-secondary">Trở về danh sách</a>
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

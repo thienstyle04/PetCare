@@ -1,0 +1,65 @@
+﻿@model Petcare_web.Models.DTO.ThanhToanDTO
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Cập nhật Thanh toán";
+}
+
+<div class="card">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="card-title">💳 @ViewData["Title"] #@Model.MaThanhToan</h3>
+        <a asp-action="Index" class="btn btn-secondary">← Quay lại</a>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-action="Edit" asp-route-id="@Model.MaThanhToan">
+            <input type="hidden" asp-for="MaThanhToan" />
+            <input type="hidden" asp-for="MaLichHen" />
+            <input type="hidden" asp-for="SoTien" />
+            <input type="hidden" asp-for="PhuongThuc" />
+
+            @if (ViewData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+            }
+
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600;">Lịch hẹn</label>
+                <p style="margin: 0; padding: 10px 0; color: #4b5563;">#@Model.MaLichHen</p>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600;">Số tiền</label>
+                <p style="margin: 0; padding: 10px 0; color: #4b5563;">@Model.SoTien.ToString("N0") VNĐ</p>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600;">Phương thức</label>
+                <p style="margin: 0; padding: 10px 0; color: #4b5563;">@Model.PhuongThuc</p>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TrangThai" class="form-label">Trạng thái thanh toán</label>
+                <select asp-for="TrangThai" class="form-select">
+                    <option value="DaThanhToan">Đã thanh toán</option>
+                    <option value="ChoThanhToan">Chờ thanh toán</option>
+                    <option value="ThatBai">Thất bại</option>
+                    <option value="HoanTien">Hoàn tiền</option>
+                </select>
+                <span asp-validation-for="TrangThai" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="GhiChu" class="form-label">Ghi chú</label>
+                <textarea asp-for="GhiChu" class="form-textarea" rows="3"></textarea>
+            </div>
+
+            <div style="margin-top: 30px; display: flex; gap: 12px;">
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

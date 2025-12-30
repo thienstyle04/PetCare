@@ -1,0 +1,73 @@
+﻿@model List<Petcare_web.Models.DTO.ThuCungDTO>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Danh sách thú cưng";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@ViewData["Title"]</h3>
+        <a asp-action="Create" class="btn btn-primary">
+            + Thêm thú cưng
+        </a>
+    </div>
+
+    <div class="card-body">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã TC</th>
+                    <th>Tên thú cưng</th>
+                    <th>Giống</th>
+                    <th>Tuổi</th>
+                    <th>Cân nặng (kg)</th>
+                    <th>Chủ sở hữu (Mã KH)</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var pet in Model)
+                    {
+                        <tr>
+                            <td>#@pet.MaThuCung</td>
+                            <td>@pet.TenThuCung</td>
+                            <td>@(pet.Giong ?? "-")</td>
+                            <td>@(pet.Tuoi.HasValue ? pet.Tuoi.Value.ToString() : "-")</td>
+                            <td>@(pet.CanNang.HasValue ? pet.CanNang.Value.ToString("F2") : "-")</td>
+                            <td>#@pet.MaKhachHang</td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@pet.MaThuCung" class="btn btn-info btn-sm">
+                                    Chi tiết
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@pet.MaThuCung" class="btn btn-secondary btn-sm">
+                                    Sửa
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@pet.MaThuCung" class="btn btn-danger btn-sm">
+                                    Xóa
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-center text-muted">Chưa có thú cưng nào.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

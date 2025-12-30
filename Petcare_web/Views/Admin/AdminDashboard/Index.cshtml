@@ -1,0 +1,107 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Dashboard";
+    var recentAppointments = ViewBag.RecentAppointments as List<Petcare_web.Models.DTO.LichHenDTO> ?? new List<Petcare_web.Models.DTO.LichHenDTO>();
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>Lỗi:</strong> @ViewBag.ErrorMessage
+    </div>
+}
+
+<div class="grid-4">
+    <div class="stats-card blue">
+        <div class="icon">👥</div>
+        <h3>@ViewBag.TotalCustomers</h3>
+        <p>Tổng khách hàng</p>
+        <small class="text-muted">Tất cả khách hàng</small>
+    </div>
+    <div class="stats-card green">
+        <div class="icon">📅</div>
+        <h3>@ViewBag.TotalAppointments</h3>
+        <p>Tổng lịch hẹn</p>
+        <small class="text-muted">Tất cả lịch hẹn</small>
+    </div>
+    <div class="stats-card orange">
+        <div class="icon">💰</div>
+        <h3>@(((decimal)ViewBag.TotalRevenue / 1000000).ToString("F1"))M</h3>
+        <p>Tổng doanh thu</p>
+        <small class="text-muted">Tất cả doanh thu</small>
+    </div>
+    <div class="stats-card red">
+        <div class="icon">👨‍⚕️</div>
+        <h3>@ViewBag.TotalStaff</h3>
+        <p>Tổng nhân viên</p>
+        <small class="text-muted">Hoạt động: @ViewBag.ActiveStaff</small>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">📋 Lịch hẹn gần đây</h3>
+        <a href="@Url.Action("Index", "AdminAppointments")" class="btn btn-secondary btn-sm">Xem tất cả</a>
+    </div>
+    <div class="card-body">
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+        }
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã</th>
+                    <th>Khách hàng</th>
+                    <th>Thú cưng</th>
+                    <th>Dịch vụ</th>
+                    <th>Ngày giờ</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (recentAppointments.Any())
+                {
+                    foreach (var appt in recentAppointments)
+                    {
+                        <tr>
+                            <td>#@appt.MaLichHen</td>
+                            <td>@appt.TenKhachHang</td>
+                            <td>@appt.TenThuCung</td>
+                            <td>@appt.TenDichVu</td>
+                            <td>@appt.NgayGioHen.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>
+                                @if (appt.TrangThai == "Hoàn thành" || appt.TrangThai == "Đã hoàn thành")
+                                {
+                                    <span class="badge badge-success">@appt.TrangThai</span>
+                                }
+                                else if (appt.TrangThai == "Đã xác nhận")
+                                {
+                                    <span class="badge badge-info">@appt.TrangThai</span>
+                                }
+                                else if (appt.TrangThai == "Đã hủy")
+                                {
+                                    <span class="badge badge-danger">@appt.TrangThai</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-warning">@appt.TrangThai</span>
+                                }
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Details", "AdminAppointments", new { id = appt.MaLichHen })" class="btn btn-secondary btn-sm">Chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-center text-muted">Không có lịch hẹn nào</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

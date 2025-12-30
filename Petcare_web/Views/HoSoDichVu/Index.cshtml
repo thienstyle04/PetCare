@@ -1,0 +1,50 @@
+﻿@model List<Petcare_web.Models.DTO.HoSoDichVuDTO>
+
+@{
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+    ViewData["Title"] = "Hồ sơ Dịch vụ";
+}
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="card-title">Danh sách Hồ sơ Dịch vụ</h3>
+        <a href="/Staff/HoSoDichVu/Create" class="btn btn-primary">+ Tạo hồ sơ mới</a>
+    </div>
+
+    <div class="card-body">
+        @if (Model == null || !Model.Any())
+        {
+            <p>Chưa có hồ sơ dịch vụ nào.</p>
+        }
+        else
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Mã hồ sơ</th>
+                        <th>Mã lịch hẹn</th>
+                        <th>Nhân viên</th>
+                        <th>Ngày tạo</th>
+                        <th>Ghi chú</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.MaHoSo</td>
+                            <td>@item.MaLichHen</td>
+                            <td>@item.TenNhanVien</td>
+                            <td>@item.NgayTao.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@item.GhiChuDichVu</td>
+                            <td>
+                                <a href="/Staff/HoSoDichVu/Details/@item.MaHoSo" class="btn btn-secondary btn-sm">Chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿@model Petcare_web.Models.DTO.LichHenRequestDTO
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Tạo mới Lịch hẹn";
+}
+
+<div class="card">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="card-title">@ViewData["Title"]</h3>
+        <a asp-action="Index" class="btn btn-secondary">← Quay lại</a>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-action="Create">
+            @if (ViewData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+            }
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                    <label asp-for="MaKhachHang" class="form-label">Khách hàng</label>
+                    <select asp-for="MaKhachHang" class="form-select" asp-items="@ViewBag.Customers">
+                        <option value="">-- Chọn khách hàng --</option>
+                    </select>
+                    <span asp-validation-for="MaKhachHang" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaThuCung" class="form-label">Thú cưng</label>
+                    <select asp-for="MaThuCung" class="form-select" asp-items="@ViewBag.Pets">
+                        <option value="">-- Chọn thú cưng --</option>
+                    </select>
+                    <span asp-validation-for="MaThuCung" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MaDichVu" class="form-label">Dịch vụ</label>
+                <select asp-for="MaDichVu" class="form-select" asp-items="@ViewBag.Services">
+                    <option value="">-- Chọn dịch vụ --</option>
+                </select>
+                <span asp-validation-for="MaDichVu" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MaNhanVien" class="form-label">Nhân viên phụ trách</label>
+                <select asp-for="MaNhanVien" class="form-select" asp-items="@ViewBag.Staff">
+                    <option value="">-- Chọn nhân viên --</option>
+                </select>
+                <span asp-validation-for="MaNhanVien" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NgayGioHen" class="form-label">Thời gian hẹn</label>
+                <input asp-for="NgayGioHen" type="datetime-local" class="form-input" />
+                <span asp-validation-for="NgayGioHen" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TrangThai" class="form-label">Trạng thái</label>
+                <input asp-for="TrangThai" class="form-input" />
+                <span asp-validation-for="TrangThai" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="GhiChu" class="form-label">Ghi chú</label>
+                <textarea asp-for="GhiChu" class="form-textarea" rows="3"></textarea>
+            </div>
+
+            <div style="margin-top: 30px; display: flex; gap: 12px;">
+                <button type="submit" class="btn btn-primary">Tạo lịch hẹn</button>
+                <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,501 @@
+﻿2025-10-28 17:06:56.190 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 17:06:56.253 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:06:56.254 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:06:56.270 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 17:07:10.556 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: nhanvien
+2025-10-28 17:07:10.696 +07:00 [INF] Người dùng nhanvien đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-28 17:07:10.895 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 17:07:10.901 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:07:10.902 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:07:10.923 +07:00 [INF] Found 4 appointments for staff ID: 2
+2025-10-28 17:07:10.978 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:07:10.978 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:07:23.823 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: khachhang1
+2025-10-28 17:07:23.870 +07:00 [INF] Người dùng khachhang1 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-28 17:07:23.883 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:07:23.886 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:07:23.886 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:07:23.909 +07:00 [INF] Fetching pets for customer ID: 6
+2025-10-28 17:07:23.915 +07:00 [INF] Found 1 pets for customer ID: 6
+2025-10-28 17:07:23.922 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 17:07:23.925 +07:00 [INF] Found 1 appointments for customer ID: 6
+2025-10-28 17:07:23.930 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 17:07:23.994 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 17:07:23.996 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 17:07:24.001 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 17:07:24.004 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 17:07:27.051 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:07:27.054 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 17:07:27.056 +07:00 [INF] Found 1 appointments for customer ID: 6
+2025-10-28 17:07:28.406 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:07:28.411 +07:00 [INF] Fetching pets for customer ID: 6
+2025-10-28 17:07:28.412 +07:00 [INF] Found 1 pets for customer ID: 6
+2025-10-28 17:07:28.416 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 17:07:28.418 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 17:07:39.139 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:07:39.163 +07:00 [INF] === API Create LichHen ===
+2025-10-28 17:07:39.163 +07:00 [INF] MaThuCung: 7
+2025-10-28 17:07:39.164 +07:00 [INF] MaDichVu: 5
+2025-10-28 17:07:39.164 +07:00 [INF] MaKhachHang: 6
+2025-10-28 17:07:39.165 +07:00 [INF] NgayGioHen: 10/30/2025 10:00:00 AM
+2025-10-28 17:07:39.165 +07:00 [INF] GhiChu: 123
+2025-10-28 17:07:39.287 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:07:39.291 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 17:07:39.297 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 17:07:48.379 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: nhanvien
+2025-10-28 17:07:48.431 +07:00 [INF] Người dùng nhanvien đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-28 17:07:48.443 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 17:07:48.446 +07:00 [INF] Found 4 appointments for staff ID: 2
+2025-10-28 17:07:54.230 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 17:07:54.232 +07:00 [INF] Found 4 appointments for staff ID: 2
+2025-10-28 17:08:15.553 +07:00 [INF] Updating status for appointment ID: 16 to Đã xác nhận
+2025-10-28 17:08:15.559 +07:00 [INF] === DEBUG UpdateStatus ===
+2025-10-28 17:08:15.560 +07:00 [INF] User ID from token: e2cec10c-ac6e-475f-9661-22d0598930ba
+2025-10-28 17:08:15.560 +07:00 [INF] Is NHANVIEN role: true
+2025-10-28 17:08:15.561 +07:00 [INF] Status being set: Đã xác nhận
+2025-10-28 17:08:15.561 +07:00 [INF] Condition met: Staff confirming appointment
+2025-10-28 17:08:15.561 +07:00 [INF] NhanVienRepo found, looking up staff by IdentityUserId: e2cec10c-ac6e-475f-9661-22d0598930ba
+2025-10-28 17:08:15.571 +07:00 [INF] ✅ Assigning staff ID: 2 to appointment ID: 16
+2025-10-28 17:08:15.593 +07:00 [INF] Successfully updated appointment ID: 16 to status: Đã xác nhận
+2025-10-28 17:09:19.088 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 17:09:19.090 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:09:19.090 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:09:19.096 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 17:09:35.757 +07:00 [INF] Fetching employee ID: 2
+2025-10-28 17:09:35.768 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 17:09:35.777 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 17:09:39.454 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 17:09:39.457 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 17:09:42.467 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 17:09:42.469 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 17:11:25.452 +07:00 [INF] Fetching employee ID: 2
+2025-10-28 17:11:25.457 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 17:11:25.466 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 17:13:43.451 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 17:13:43.455 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 17:13:44.666 +07:00 [INF] Fetching employee ID: 2
+2025-10-28 17:13:44.671 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 17:13:44.679 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 17:13:50.831 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 17:13:50.833 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 17:13:51.338 +07:00 [INF] Fetching employee ID: 2
+2025-10-28 17:13:51.341 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 17:13:51.342 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 17:14:07.833 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: khachhang1
+2025-10-28 17:14:07.883 +07:00 [INF] Người dùng khachhang1 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-28 17:14:07.889 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:14:07.893 +07:00 [INF] Fetching pets for customer ID: 6
+2025-10-28 17:14:07.896 +07:00 [INF] Found 1 pets for customer ID: 6
+2025-10-28 17:14:07.897 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 17:14:07.899 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 17:14:07.902 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 17:14:07.912 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 17:14:07.912 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 17:14:07.914 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 17:14:07.918 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 17:14:09.143 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:14:10.319 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:14:17.054 +07:00 [WRN] Attempting to update customer ID: 6
+2025-10-28 17:14:17.070 +07:00 [INF] Customer ID 6 successfully updated.
+2025-10-28 17:14:17.075 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:14:45.320 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:14:45.325 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 17:14:45.335 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 17:14:45.339 +07:00 [INF] Fetching reviews for customer ID: 6
+2025-10-28 17:14:45.343 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:14:45.343 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:14:45.357 +07:00 [INF] Found 2 reviews for customer ID: 6
+2025-10-28 17:14:45.365 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 17:14:45.371 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 17:14:45.372 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 17:14:45.768 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:14:45.771 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 17:14:45.781 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 17:14:45.783 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 17:14:45.789 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 17:14:45.790 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 17:14:46.941 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 17:14:46.945 +07:00 [INF] Fetching pets for customer ID: 6
+2025-10-28 17:14:46.947 +07:00 [INF] Found 1 pets for customer ID: 6
+2025-10-28 17:14:46.948 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 17:14:46.957 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 17:14:46.959 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 17:14:46.965 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 17:14:46.965 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 17:14:46.966 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 17:14:46.969 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 17:15:48.653 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-28 17:15:48.704 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-28 17:15:48.717 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 17:15:48.725 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 17:15:48.727 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:15:48.728 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:15:48.733 +07:00 [DBG] Returned 1 employees.
+2025-10-28 17:15:48.754 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 17:15:48.755 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:15:48.756 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 17:15:48.760 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 17:17:03.811 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 17:18:35.735 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 17:18:35.739 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 17:19:15.136 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 17:19:18.122 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 17:19:18.125 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 17:19:19.131 +07:00 [INF] Attempting to get pet ID: 5
+2025-10-28 17:19:19.136 +07:00 [INF] Pet ID 5 retrieved successfully.
+2025-10-28 17:19:22.522 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 17:19:22.526 +07:00 [DBG] Returned 1 employees.
+2025-10-28 17:19:24.030 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 17:19:24.034 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 17:19:24.795 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-28 17:19:24.803 +07:00 [DBG] Successfully retrieved 2 reviews.
+2025-10-28 17:19:24.804 +07:00 [INF] Completed getting all reviews. Total count: 2
+2025-10-28 17:19:26.040 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 17:19:26.044 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 17:19:26.046 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 17:19:26.048 +07:00 [DBG] Successfully returned 10 services.
+2025-10-28 17:19:28.065 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 17:19:28.550 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 17:19:28.553 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 17:19:28.554 +07:00 [DBG] Returned 1 employees.
+2025-10-28 17:19:28.557 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 17:19:28.558 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 17:19:35.069 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 17:19:36.678 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 17:19:36.680 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 17:19:38.260 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 17:19:38.262 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 17:19:39.413 +07:00 [INF] Attempting to get pet ID: 5
+2025-10-28 17:19:39.414 +07:00 [INF] Pet ID 5 retrieved successfully.
+2025-10-28 17:19:41.609 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 17:19:41.611 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 17:19:55.119 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 17:20:00.212 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 17:20:00.214 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 17:20:55.772 +07:00 [INF] Updating status for appointment ID: 15 to Hoàn thành
+2025-10-28 17:20:55.778 +07:00 [INF] === DEBUG UpdateStatus ===
+2025-10-28 17:20:55.778 +07:00 [INF] User ID from token: 0d036a0f-0333-40ae-9233-acd7ffa60645
+2025-10-28 17:20:55.778 +07:00 [INF] Is NHANVIEN role: false
+2025-10-28 17:20:55.778 +07:00 [INF] Status being set: Hoàn thành
+2025-10-28 17:20:55.779 +07:00 [INF] Condition NOT met for staff assignment
+2025-10-28 17:20:55.785 +07:00 [INF] Successfully updated appointment ID: 15 to status: Hoàn thành
+2025-10-28 17:26:19.924 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 17:26:19.931 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 17:26:19.933 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 17:26:19.934 +07:00 [DBG] Successfully returned 10 services.
+2025-10-28 17:28:14.167 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 17:28:14.172 +07:00 [DBG] Returned 1 employees.
+2025-10-28 17:28:16.455 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 17:28:16.458 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 17:28:19.371 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-28 17:28:19.379 +07:00 [DBG] Successfully retrieved 2 reviews.
+2025-10-28 17:28:19.379 +07:00 [INF] Completed getting all reviews. Total count: 2
+2025-10-28 17:28:22.117 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 17:28:22.120 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 17:28:22.121 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 17:28:22.122 +07:00 [DBG] Successfully returned 10 services.
+2025-10-28 17:28:22.571 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 17:28:22.573 +07:00 [DBG] Returned 1 employees.
+2025-10-28 17:29:18.705 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 17:29:18.709 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 17:29:19.763 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 17:29:19.767 +07:00 [DBG] Returned 1 employees.
+2025-10-28 18:43:41.916 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-28 18:43:41.974 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-28 18:43:41.981 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 18:43:41.986 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 18:43:41.989 +07:00 [DBG] Returned 1 employees.
+2025-10-28 18:43:41.998 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 18:43:42.000 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 18:43:43.494 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 18:43:43.495 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 18:43:51.104 +07:00 [INF] Request GET Payment by ID: 8
+2025-10-28 18:43:54.860 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 18:43:54.863 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 18:44:50.797 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-28 18:44:50.808 +07:00 [DBG] Successfully retrieved 2 reviews.
+2025-10-28 18:44:50.808 +07:00 [INF] Completed getting all reviews. Total count: 2
+2025-10-28 18:45:41.030 +07:00 [INF] Request GET by ID: 7
+2025-10-28 18:45:41.042 +07:00 [INF] Successfully retrieved review ID: 7
+2025-10-28 18:45:42.291 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-28 18:45:42.298 +07:00 [DBG] Successfully retrieved 2 reviews.
+2025-10-28 18:45:42.298 +07:00 [INF] Completed getting all reviews. Total count: 2
+2025-10-28 19:34:04.517 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 19:34:04.577 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:34:04.579 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:34:04.591 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 19:34:13.570 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: nhanvien
+2025-10-28 19:34:13.696 +07:00 [INF] Người dùng nhanvien đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-28 19:34:13.882 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 19:34:13.891 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:34:13.893 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:34:13.913 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 19:34:13.964 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:34:13.967 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:34:20.402 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 19:34:20.405 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:34:20.406 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:34:20.429 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 19:34:31.521 +07:00 [INF] Fetching employee ID: 2
+2025-10-28 19:34:31.538 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 19:34:31.545 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 19:34:46.479 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 19:34:46.483 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 19:34:48.000 +07:00 [INF] Fetching employee ID: 2
+2025-10-28 19:34:48.005 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 19:34:48.007 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 19:34:58.737 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 19:34:58.739 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 19:35:03.873 +07:00 [INF] Fetching employee ID: 2
+2025-10-28 19:35:03.876 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 19:35:03.877 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 19:35:04.892 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 19:35:04.895 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 19:35:21.588 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: khachhang1
+2025-10-28 19:35:21.638 +07:00 [WRN] Đăng nhập thất bại: Tên đăng nhập hoặc mật khẩu không chính xác cho khachhang1.
+2025-10-28 19:35:28.146 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: khachhang1
+2025-10-28 19:35:28.193 +07:00 [WRN] Đăng nhập thất bại: Tên đăng nhập hoặc mật khẩu không chính xác cho khachhang1.
+2025-10-28 19:35:38.947 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: khachhang1
+2025-10-28 19:35:39.000 +07:00 [INF] Người dùng khachhang1 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-28 19:35:39.012 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:35:39.014 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:35:39.015 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:35:39.030 +07:00 [INF] Fetching pets for customer ID: 6
+2025-10-28 19:35:39.035 +07:00 [INF] Found 1 pets for customer ID: 6
+2025-10-28 19:35:39.040 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:35:39.047 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:35:39.062 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 19:35:39.093 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 19:35:39.095 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 19:35:39.100 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 19:35:39.102 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 19:35:41.774 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:35:41.777 +07:00 [INF] Fetching pets for customer ID: 6
+2025-10-28 19:35:41.779 +07:00 [INF] Found 1 pets for customer ID: 6
+2025-10-28 19:35:41.780 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:35:41.782 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:35:41.785 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 19:35:41.789 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 19:35:41.789 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 19:35:41.791 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 19:35:41.793 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 19:35:42.068 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:35:42.073 +07:00 [INF] Fetching pets for customer ID: 6
+2025-10-28 19:35:42.075 +07:00 [INF] Found 1 pets for customer ID: 6
+2025-10-28 19:35:45.117 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:35:45.120 +07:00 [INF] Fetching pets for customer ID: 6
+2025-10-28 19:35:45.122 +07:00 [INF] Found 1 pets for customer ID: 6
+2025-10-28 19:35:45.747 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:35:45.750 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:35:45.751 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:35:57.835 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: nhanvien
+2025-10-28 19:35:57.882 +07:00 [INF] Người dùng nhanvien đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-28 19:35:57.894 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 19:35:57.898 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 19:38:09.960 +07:00 [INF] Starting image upload for file: hosodichvu_truoc_20251028193809_truoc.png
+2025-10-28 19:38:10.038 +07:00 [INF] Image uploaded successfully with ID: 7
+2025-10-28 19:38:10.050 +07:00 [INF] Starting image upload for file: hosodichvu_sau_20251028193810_sau.png
+2025-10-28 19:38:10.057 +07:00 [INF] Image uploaded successfully with ID: 8
+2025-10-28 19:38:21.235 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 19:38:21.244 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 19:41:18.798 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 19:41:18.860 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:41:18.861 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:41:18.873 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 19:41:32.986 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: nhanvien
+2025-10-28 19:41:33.109 +07:00 [INF] Người dùng nhanvien đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-28 19:41:33.211 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 19:41:33.218 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:41:33.219 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:41:33.233 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 19:41:33.285 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:41:33.288 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:41:37.749 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 19:41:37.751 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:41:37.752 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:41:37.773 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 19:41:38.993 +07:00 [INF] Attempting to get pet ID: 5
+2025-10-28 19:41:38.998 +07:00 [INF] Pet ID 5 retrieved successfully.
+2025-10-28 19:41:39.002 +07:00 [INF] Fetching customer ID: 5
+2025-10-28 19:42:15.264 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-28 19:42:15.317 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-28 19:42:15.335 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 19:42:15.340 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:42:15.342 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:42:15.362 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 19:42:15.364 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:42:15.364 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:42:15.372 +07:00 [DBG] Returned 1 employees.
+2025-10-28 19:42:15.402 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 19:42:15.404 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:42:15.405 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:42:15.417 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 19:42:18.735 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 19:42:46.406 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 19:42:47.051 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 19:42:47.448 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 19:42:47.451 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 19:42:48.667 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 19:42:48.669 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 19:42:50.702 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 19:45:40.768 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 19:45:40.827 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:45:40.828 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:45:40.839 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 19:45:50.171 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-28 19:45:50.312 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-28 19:45:50.364 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 19:45:50.367 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:45:50.368 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:45:50.444 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 19:45:50.453 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:45:50.454 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:45:50.482 +07:00 [DBG] Returned 1 employees.
+2025-10-28 19:45:50.513 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:45:50.514 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:45:50.548 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 19:45:50.551 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:45:50.551 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:45:50.564 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 19:45:51.923 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 19:45:51.928 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 19:45:51.931 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 19:45:51.933 +07:00 [DBG] Successfully returned 10 services.
+2025-10-28 19:45:53.418 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 19:45:55.044 +07:00 [INF] Fetching customer ID: 5
+2025-10-28 19:45:55.055 +07:00 [INF] Fetching pets for customer ID: 5
+2025-10-28 19:45:55.061 +07:00 [INF] Found 1 pets for customer ID: 5
+2025-10-28 19:46:17.186 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-28 19:46:17.234 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-28 19:46:17.243 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-28 19:46:17.249 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 19:46:17.252 +07:00 [DBG] Returned 1 employees.
+2025-10-28 19:46:17.258 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 19:46:17.260 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 19:46:18.569 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-28 19:46:18.574 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:46:18.575 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:46:18.592 +07:00 [DBG] Successfully retrieved 2 reviews.
+2025-10-28 19:46:18.593 +07:00 [INF] Completed getting all reviews. Total count: 2
+2025-10-28 19:46:19.447 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 19:46:19.449 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 19:46:20.737 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-28 19:46:20.739 +07:00 [DBG] Successfully retrieved 2 reviews.
+2025-10-28 19:46:20.741 +07:00 [INF] Completed getting all reviews. Total count: 2
+2025-10-28 19:46:21.124 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-28 19:46:21.126 +07:00 [DBG] Successfully retrieved 2 reviews.
+2025-10-28 19:46:21.127 +07:00 [INF] Completed getting all reviews. Total count: 2
+2025-10-28 19:46:22.066 +07:00 [INF] Request GET by ID: 8
+2025-10-28 19:46:22.077 +07:00 [INF] Successfully retrieved review ID: 8
+2025-10-28 19:46:23.621 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-28 19:46:23.629 +07:00 [DBG] Successfully retrieved 2 reviews.
+2025-10-28 19:46:23.630 +07:00 [INF] Completed getting all reviews. Total count: 2
+2025-10-28 19:46:27.241 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 19:46:27.245 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 19:46:28.881 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 19:46:28.885 +07:00 [DBG] Returned 1 employees.
+2025-10-28 19:46:29.534 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-28 19:46:29.536 +07:00 [DBG] Returned 2 payment records.
+2025-10-28 19:46:30.151 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 19:46:30.155 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 19:46:30.158 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 19:46:30.159 +07:00 [DBG] Successfully returned 10 services.
+2025-10-28 19:46:30.673 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-28 19:46:30.676 +07:00 [DBG] Returned 1 employees.
+2025-10-28 19:46:39.829 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: khachhang1
+2025-10-28 19:46:39.877 +07:00 [WRN] Đăng nhập thất bại: Tên đăng nhập hoặc mật khẩu không chính xác cho khachhang1.
+2025-10-28 19:46:44.816 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: khachhang1
+2025-10-28 19:46:44.866 +07:00 [INF] Người dùng khachhang1 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-28 19:46:44.878 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:46:44.885 +07:00 [INF] Fetching pets for customer ID: 6
+2025-10-28 19:46:44.887 +07:00 [INF] Found 1 pets for customer ID: 6
+2025-10-28 19:46:44.893 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:46:44.900 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:46:44.904 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 19:46:44.949 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 19:46:44.950 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 19:46:44.954 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 19:46:44.956 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 19:46:46.732 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:46:46.734 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:46:46.736 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:46:46.738 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 19:46:46.740 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 19:46:46.740 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 19:46:49.151 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:46:49.154 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 19:46:49.156 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 19:46:49.157 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 19:46:50.811 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:46:50.814 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:46:50.816 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:46:50.818 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 19:46:50.820 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 19:46:50.821 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 19:46:51.482 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:46:51.485 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:46:51.488 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:46:51.916 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:46:51.918 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:46:51.920 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:46:51.922 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 19:46:51.923 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 19:46:51.924 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 19:46:56.683 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:46:56.686 +07:00 [INF] Fetching pets for customer ID: 6
+2025-10-28 19:46:56.687 +07:00 [INF] Found 1 pets for customer ID: 6
+2025-10-28 19:46:57.611 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:46:57.614 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:46:57.616 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:46:58.131 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:46:58.134 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:46:58.135 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:46:58.137 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 19:46:58.139 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 19:46:58.139 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 19:46:58.730 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:46:58.733 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:46:58.734 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:47:18.242 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: nhanvien
+2025-10-28 19:47:18.289 +07:00 [INF] Người dùng nhanvien đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-28 19:47:18.310 +07:00 [INF] Fetching appointments for staff ID: 2
+2025-10-28 19:47:18.313 +07:00 [INF] Found 5 appointments for staff ID: 2
+2025-10-28 19:47:18.320 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:47:18.321 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:47:20.346 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-28 19:47:20.348 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:47:20.349 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-28 19:47:20.354 +07:00 [INF] Returned 2 pets for page 1.
+2025-10-28 19:47:22.991 +07:00 [INF] Updating status for appointment ID: 16 to Hoàn thành
+2025-10-28 19:47:23.001 +07:00 [INF] === DEBUG UpdateStatus ===
+2025-10-28 19:47:23.002 +07:00 [INF] User ID from token: e2cec10c-ac6e-475f-9661-22d0598930ba
+2025-10-28 19:47:23.002 +07:00 [INF] Is NHANVIEN role: true
+2025-10-28 19:47:23.003 +07:00 [INF] Status being set: Hoàn thành
+2025-10-28 19:47:23.003 +07:00 [INF] Condition NOT met for staff assignment
+2025-10-28 19:47:23.059 +07:00 [INF] Successfully updated appointment ID: 16 to status: Hoàn thành
+2025-10-28 19:47:31.957 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: khachhang1
+2025-10-28 19:47:32.009 +07:00 [INF] Người dùng khachhang1 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-28 19:47:32.015 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:47:32.020 +07:00 [INF] Fetching pets for customer ID: 6
+2025-10-28 19:47:32.022 +07:00 [INF] Found 1 pets for customer ID: 6
+2025-10-28 19:47:32.024 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:47:32.032 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:47:32.033 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 19:47:32.039 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 19:47:32.040 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 19:47:32.041 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-28 19:47:32.044 +07:00 [DBG] Successfully returned 20 services.
+2025-10-28 19:47:41.761 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:47:41.766 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:47:41.775 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:47:41.777 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 19:47:41.784 +07:00 [INF] Found 1 payments for customer ID: 6
+2025-10-28 19:47:41.785 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00
+2025-10-28 19:47:54.822 +07:00 [WRN] Attempting to CREATE new payment for Appointment ID: 16
+2025-10-28 19:47:54.863 +07:00 [INF] Payment created successfully. New ID: 10
+2025-10-28 19:47:54.877 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 9
+2025-10-28 19:47:54.882 +07:00 [INF] Fetching appointments for customer ID: 6
+2025-10-28 19:47:54.893 +07:00 [INF] Found 2 appointments for customer ID: 6
+2025-10-28 19:47:54.900 +07:00 [INF] Fetching payments for customer ID: 6
+2025-10-28 19:47:54.912 +07:00 [INF] Found 2 payments for customer ID: 6
+2025-10-28 19:47:54.913 +07:00 [INF] Mapped to DTO. First payment SoTien: 200000.00

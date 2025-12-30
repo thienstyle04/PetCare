@@ -1,0 +1,118 @@
+@model Petcare_web.Models.DTO.LichHenDTO
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chi tiết Lịch hẹn";
+}
+
+<div class="card">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="card-title">@ViewData["Title"] #@Model.MaLichHen</h3>
+        <a asp-action="Index" class="btn btn-secondary">← Quay lại</a>
+    </div>
+    <div class="card-body">
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+        }
+
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th style="width: 30%;">Mã lịch hẹn</th>
+                            <td>#LH@(Model.MaLichHen)</td>
+                        </tr>
+                        <tr>
+                            <th>Khách hàng</th>
+                            <td>@(Model.TenKhachHang ?? "N/A") (#KH@(Model.MaKhachHang))</td>
+                        </tr>
+                        <tr>
+                            <th>Thú cưng</th>
+                            <td>@(Model.TenThuCung ?? "N/A") (#TC@(Model.MaThuCung))</td>
+                        </tr>
+                        <tr>
+                            <th>Dịch vụ</th>
+                            <td>@(Model.TenDichVu ?? "N/A")</td>
+                        </tr>
+                        <tr>
+                            <th>Nhân viên phụ trách</th>
+                            <td>
+                                @if (!string.IsNullOrEmpty(Model.TenNhanVien))
+                                {
+                                    @Model.TenNhanVien
+                                    if (Model.MaNhanVien.HasValue)
+                                    {
+                                        <text> (#NV@(Model.MaNhanVien))</text>
+                                    }
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Chưa phân công</span>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Ngày giờ hẹn</th>
+                            <td>@Model.NgayGioHen.ToString("dd/MM/yyyy HH:mm")</td>
+                        </tr>
+                        <tr>
+                            <th>Trạng thái</th>
+                            <td>
+                                @if (Model.TrangThai == "Đã xác nhận")
+                                {
+                                    <span class="badge badge-info">@Model.TrangThai</span>
+                                }
+                                else if (Model.TrangThai == "Hoàn thành")
+                                {
+                                    <span class="badge badge-success">@Model.TrangThai</span>
+                                }
+                                else if (Model.TrangThai == "Đã hủy")
+                                {
+                                    <span class="badge badge-danger">@Model.TrangThai</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-warning">@Model.TrangThai</span>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Tổng tiền</th>
+                            <td>
+                                @if (Model.TongTien.HasValue)
+                                {
+                                    @Model.TongTien.Value.ToString("N0") <text>đ</text>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Chưa có</span>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Ghi chú</th>
+                            <td>@(string.IsNullOrEmpty(Model.GhiChu) ? "Không có" : Model.GhiChu)</td>
+                        </tr>
+                        <tr>
+                            <th>Ngày tạo</th>
+                            <td>@Model.NgayTao.ToString("dd/MM/yyyy HH:mm")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; display: flex; gap: 12px;">
+            <a asp-action="Edit" asp-route-id="@Model.MaLichHen" class="btn btn-primary">
+                <i class="bi bi-pencil"></i> Chỉnh sửa
+            </a>
+            <a asp-action="Delete" asp-route-id="@Model.MaLichHen" class="btn btn-danger">
+                <i class="bi bi-trash"></i> Xóa
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Quay lại danh sách
+            </a>
+        </div>
+    </div>
+</div>

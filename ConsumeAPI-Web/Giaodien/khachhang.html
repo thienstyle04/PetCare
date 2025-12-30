@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare - Khách hàng</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #2d3748;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #6b7280;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: #f3f4f6;
+            color: #2563eb;
+        }
+
+        .nav-link.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .user-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: #f3f4f6;
+            border-radius: 8px;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        /* Page Content */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #6b7280;
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 24px;
+        }
+
+        .card-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .grid-item:hover {
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+
+        .grid-item.add-new {
+            background: #f9fafb;
+            border: 2px dashed #d1d5db;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-item.add-new:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .pet-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .grid-item h3 {
+            font-size: 18px;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .grid-item p {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+
+        /* Service Card */
+        .service-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s;
+        }
+
+        .service-card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .service-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 16px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #f9fafb;
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #6b7280;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge-danger {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Button */
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            margin-bottom: 24px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .close-modal {
+            float: right;
+            font-size: 28px;
+            cursor: pointer;
+            color: #9ca3af;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #6b7280;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Profile Section */
+        .profile-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-size: 16px;
+            color: #1f2937;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">PetCare</div>
+            <div class="nav">
+                <div class="nav-link active" onclick="showPage('home')">Trang chủ</div>
+                <div class="nav-link" onclick="showPage('pets')">Thú cưng</div>
+                <div class="nav-link" onclick="showPage('appointments')">Lịch hẹn</div>
+                <div class="nav-link" onclick="showPage('profile')">Hồ sơ</div>
+            </div>
+            <div class="user-badge">
+                <div class="user-avatar">NV</div>
+                <div>
+                    <div style="font-weight: 600; font-size: 14px;">Nguyễn Văn A</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home" class="page-content active">
+            <div class="hero">
+                <h1>Chăm sóc thú cưng chuyên nghiệp</h1>
+                <p>Đặt lịch hẹn dễ dàng với các dịch vụ chất lượng cao</p>
+            </div>
+
+            <!-- My Pets -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Thú cưng của tôi</h3>
+                </div>
+                <div class="card-body">
+                    <div class="grid">
+                        <div class="grid-item">
+                            <div class="pet-icon">🐕</div>
+                            <h3>Lucky</h3>
+                            <p>Golden Retriever • 3 tuổi</p>
+                            <button class="btn btn-secondary btn-sm btn-full">Xem chi tiết</button>
+                        </div>
+                        <div class="grid-item">
+                            <div class="pet-icon">🐱</div>
+                            <h3>Milo</h3>
+                            <p>Mèo Ba Tư • 2 tuổi</p>
+                            <button class="btn btn-secondary btn-sm btn-full">Xem chi tiết</button>
+                        </div>
+                        <div class="grid-item add-new" onclick="openModal('addPetModal')">
+                            <div class="pet-icon">➕</div>
+                            <h3>Thêm thú cưng</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Dịch vụ của chúng tôi</h3>
+                </div>
+                <div class="card-body">
+                    <div class="grid">
+                        <div class="service-card">
+                            <div class="service-icon">🩺</div>
+                            <h3>Khám tổng quát</h3>
+                            <p>Kiểm tra sức khỏe toàn diện cho thú cưng</p>
+                            <div class="service-price">200,000đ</div>
+                            <button class="btn btn-primary btn-full" onclick="openBooking('Khám tổng quát')">Đặt lịch</button>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">💉</div>
+                            <h3>Tiêm phòng</h3>
+                            <p>Tiêm phòng dại, viêm gan và các bệnh khác</p>
+                            <div class="service-price">150,000đ</div>
+                            <button class="btn btn-primary btn-full" onclick="openBooking('Tiêm phòng')">Đặt lịch</button>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">✨</div>
+                            <h3>Spa & Grooming</h3>
+                            <p>Tắm, cắt tỉa lông và vệ sinh thú cưng</p>
+                            <div class="service-price">300,000đ</div>
+                            <button class="btn btn-primary btn-full" onclick="openBooking('Spa & Grooming')">Đặt lịch</button>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">🏥</div>
+                            <h3>Điều trị</h3>
+                            <p>Chăm sóc và điều trị các vấn đề sức khỏe</p>
+                            <div class="service-price">500,000đ</div>
+                            <button class="btn btn-primary btn-full" onclick="openBooking('Điều trị')">Đặt lịch</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pets Page -->
+        <div id="pets" class="page-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Thú cưng của tôi</h3>
+                    <button class="btn btn-primary" onclick="openModal('addPetModal')">+ Thêm thú cưng</button>
+                </div>
+                <div class="card-body">
+                    <div class="grid">
+                        <div class="grid-item">
+                            <div class="pet-icon">🐕</div>
+                            <h3>Lucky</h3>
+                            <p>Golden Retriever • 3 tuổi • Đực</p>
+                            <p style="font-size: 12px; color: #6b7280;">Cân nặng: 25kg</p>
+                            <div style="margin-top: 16px; display: flex; gap: 8px;">
+                                <button class="btn btn-secondary btn-sm" style="flex: 1;">Sửa</button>
+                                <button class="btn btn-secondary btn-sm" style="flex: 1;">Xóa</button>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="pet-icon">🐱</div>
+                            <h3>Milo</h3>
+                            <p>Mèo Ba Tư • 2 tuổi • Cái</p>
+                            <p style="font-size: 12px; color: #6b7280;">Cân nặng: 4kg</p>
+                            <div style="margin-top: 16px; display: flex; gap: 8px;">
+                                <button class="btn btn-secondary btn-sm" style="flex: 1;">Sửa</button>
+                                <button class="btn btn-secondary btn-sm" style="flex: 1;">Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointments Page -->
+        <div id="appointments" class="page-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Lịch hẹn của tôi</h3>
+                    <button class="btn btn-primary" onclick="openModal('bookingModal')">+ Đặt lịch mới</button>
+                </div>
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Ngày giờ</th>
+                                <th>Thú cưng</th>
+                                <th>Dịch vụ</th>
+                                <th>Nhân viên</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#LH001</td>
+                                <td>15/10/2025 10:00</td>
+                                <td>Lucky</td>
+                                <td>Khám tổng quát</td>
+                                <td>Bs. Nguyễn Văn D</td>
+                                <td><span class="badge badge-success">Hoàn thành</span></td>
+                                <td><button class="btn btn-secondary btn-sm">Chi tiết</button></td>
+                            </tr>
+                            <tr>
+                                <td>#LH002</td>
+                                <td>16/10/2025 14:00</td>
+                                <td>Milo</td>
+                                <td>Tiêm phòng</td>
+                                <td>Bs. Nguyễn Văn D</td>
+                                <td><span class="badge badge-info">Đã xác nhận</span></td>
+                                <td><button class="btn btn-secondary btn-sm">Chi tiết</button></td>
+                            </tr>
+                            <tr>
+                                <td>#LH003</td>
+                                <td>18/10/2025 09:00</td>
+                                <td>Lucky</td>
+                                <td>Spa & Grooming</td>
+                                <td>Lê Văn F</td>
+                                <td><span class="badge badge-warning">Chờ xác nhận</span></td>
+                                <td><button class="btn btn-secondary btn-sm">Chi tiết</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Payment History -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Lịch sử thanh toán</h3>
+                </div>
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Ngày</th>
+                                <th>Dịch vụ</th>
+                                <th>Số tiền</th>
+                                <th>Phương thức</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#TT001</td>
+                                <td>15/10/2025</td>
+                                <td>Khám tổng quát</td>
+                                <td>200,000đ</td>
+                                <td>Tiền mặt</td>
+                                <td><span class="badge badge-success">Đã thanh toán</span></td>
+                            </tr>
+                            <tr>
+                                <td>#TT002</td>
+                                <td>16/10/2025</td>
+                                <td>Tiêm phòng</td>
+                                <td>150,000đ</td>
+                                <td>Chuyển khoản</td>
+                                <td><span class="badge badge-success">Đã thanh toán</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profile" class="page-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Thông tin cá nhân</h3>
+                    <button class="btn btn-primary">Chỉnh sửa</button>
+                </div>
+                <div class="card-body">
+                    <div class="profile-info">
+                        <div class="info-item">
+                            <div class="info-label">Họ và tên</div>
+                            <div class="info-value">Nguyễn Văn A</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Email</div>
+                            <div class="info-value">nguyenvana@email.com</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Số điện thoại</div>
+                            <div class="info-value">0901234567</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Ngày sinh</div>
+                            <div class="info-value">15/05/1990</div>
+                        </div>
+                        <div class="info-item" style="grid-column: 1 / -1;">
+                            <div class="info-label">Địa chỉ</div>
+                            <div class="info-value">123 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Reviews -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Đánh giá của tôi</h3>
+                </div>
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ngày</th>
+                                <th>Dịch vụ</th>
+                                <th>Đánh giá</th>
+                                <th>Bình luận</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>15/10/2025</td>
+                                <td>Khám tổng quát</td>
+                                <td>⭐⭐⭐⭐⭐ 5.0</td>
+                                <td>Dịch vụ rất tốt, nhân viên nhiệt tình</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-modal" onclick="closeModal('bookingModal')">&times;</span>
+                <h2 class="modal-title">Đặt lịch hẹn</h2>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label class="form-label">Dịch vụ</label>
+                    <input type="text" class="form-input" id="serviceInput" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Chọn thú cưng</label>
+                    <select class="form-select" required>
+                        <option value="">-- Chọn thú cưng --</option>
+                        <option value="1">Lucky (Chó Golden Retriever)</option>
+                        <option value="2">Milo (Mèo Ba Tư)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Ngày hẹn</label>
+                    <input type="date" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Giờ hẹn</label>
+                    <select class="form-select" required>
+                        <option value="">-- Chọn giờ --</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Ghi chú</label>
+                    <textarea class="form-textarea" placeholder="Mô tả triệu chứng hoặc yêu cầu đặc biệt..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">Xác nhận đặt lịch</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Pet Modal -->
+    <div id="addPetModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-modal" onclick="closeModal('addPetModal')">&times;</span>
+                <h2 class="modal-title">Thêm thú cưng</h2>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label class="form-label">Tên thú cưng</label>
+                    <input type="text" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Loại</label>
+                    <select class="form-select" required>
+                        <option value="">-- Chọn loại --</option>
+                        <option value="Chó">Chó</option>
+                        <option value="Mèo">Mèo</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Giống</label>
+                    <input type="text" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Giới tính</label>
+                    <select class="form-select" required>
+                        <option value="">-- Chọn giới tính --</option>
+                        <option value="Đực">Đực</option>
+                        <option value="Cái">Cái</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Ngày sinh</label>
+                    <input type="date" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Cân nặng (kg)</label>
+                    <input type="number" class="form-input" step="0.1" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">Thêm thú cưng</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Remove active from nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+
+            // Add active to clicked nav link
+            event.currentTarget.classList.add('active');
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function openBooking(serviceName) {
+            document.getElementById('serviceInput').value = serviceName;
+            openModal('bookingModal');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

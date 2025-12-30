@@ -1,0 +1,106 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using PetCare.Models.Domain;
+using System.Threading.Tasks;
+
+[Route("api/[controller]")]
+[ApiController]
+public class DanhGiaController : ControllerBase
+{
+    private readonly IDanhGiaRepository danhGiaRepo;
+    private readonly ILogger<DanhGiaController> _logger;
+
+    public DanhGiaController(IDanhGiaRepository repo, ILogger<DanhGiaController> logger)
+    {
+        danhGiaRepo = repo;
+        _logger = logger;
+    }
+
+    // GET: api/DanhGia - GetAll
+    [HttpGet]
+    public async Task<IActionResult> GetAll(
+        [FromQuery] string? filterOn,
+        [FromQuery] string? filterQuery,
+        [FromQuery] string? sortBy,
+        [FromQuery] bool isAscending = true,
+        [FromQuery] int pageNumber = 1,
+        [FromQuery] int pageSize = 10)
+    {
+        _logger.LogInformation("Request GET ALL received. FilterOn: {FilterOn}, SortBy: {SortBy}", filterOn, sortBy);
+        
+        var result = await danhGiaRepo.GetAllAsync(
+            filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize
+        );
+        
+        // Log thành công với số lượng (KHÔNG serialize toàn bộ data để tránh circular reference)
+        _logger.LogDebug("Successfully retrieved {Count} reviews.", result.Count);
+        _logger.LogInformation("Completed getting all reviews. Total count: {Count}", result.Count);
+        
+        return Ok(result);
+    }
+
+    // GET: api/DanhGia/{id} - GetById
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        _logger.LogInformation("Request GET by ID: {Id}", id);
+        var result = await danhGiaRepo.GetByIdAsync(id);
+
+        if (result == null)
+        {
+            _logger.LogWarning("Review ID {Id} not found.", id);
+            return NotFound(new { Message = $"Không tìm thấy đánh giá ID: {id}" });
+        }
+
+        _logger.LogInformation("Successfully retrieved review ID: {Id}", id);
+        return Ok(result);
+    }
+
+    // POST: api/DanhGia - Create
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody] DanhGia danhGia)
+    {
+        _logger.LogWarning("Attempting to CREATE new review. Score: {Score}", danhGia.DiemSo);
+
+        var result = await danhGiaRepo.AddAsync(danhGia);
+
+        _logger.LogInformation("Review created successfully. New ID: {ReviewId}", result.MaDanhGia);
+        return CreatedAtAction(nameof(GetById), new { id = result.MaDanhGia }, result);
+    }
+
+    // PUT: api/DanhGia/{id} - Update
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, [FromBody] DanhGia danhGia)
+    {
+        _logger.LogWarning("Attempting to UPDATE review ID: {Id} to score {Score}", id, danhGia.DiemSo);
+
+        var result = await danhGiaRepo.UpdateAsync(id, danhGia);
+
+        if (result == null)
+        {
+            _logger.LogError("Update failed: Review ID {Id} not found in database.", id);
+            return NotFound(new { Message = $"Không tìm thấy đánh giá ID: {id} để cập nhật." });
+        }
+
+        _logger.LogInformation("Review ID {Id} updated successfully.", id);
+        return Ok(result);
+    }
+
+    // DELETE: api/DanhGia/{id} - Delete
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        _logger.LogWarning("Attempting to DELETE review ID: {Id}", id);
+
+        var result = await danhGiaRepo.DeleteAsync(id);
+
+        if (result == null)
+        {
+            _logger.LogError("Deletion failed: Review ID {Id} not found.", id);
+            return NotFound(new { Message = $"Không tìm thấy đánh giá ID: {id} để xóa." });
+        }
+
+        _logger.LogInformation("Review ID {Id} successfully deleted.", id);
+        return Ok(result);
+    }
+}}

@@ -1,0 +1,59 @@
+﻿@model List<Petcare_web.Models.DTO.DichVuDTO>
+
+@{
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+    ViewData["Title"] = "Danh sách dịch vụ";
+}
+
+<div class="page-content">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Danh sách dịch vụ</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Mã</th>
+                        <th>Tên dịch vụ</th>
+                        <th>Mô tả</th>
+                        <th>Giá</th>
+                        <th>Thời gian (phút)</th>
+                        <th>Ảnh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MaDichVu</td>
+                                <td>@item.TenDichVu</td>
+                                <td>@item.MoTa</td>
+                                <td>@item.Gia.ToString("N0") VNĐ</td>
+                                <td>@(item.ThoiGian ?? 0)</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                    {
+                                        <img src="@item.ImageUrl" alt="@item.TenDichVu" width="120" height="120" style="object-fit:cover;" />
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa có ảnh</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center text-muted">Không có dịch vụ nào.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

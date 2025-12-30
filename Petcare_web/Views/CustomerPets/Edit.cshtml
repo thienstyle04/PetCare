@@ -1,0 +1,73 @@
+@model Petcare_web.Models.DTO.ThuCungDTO
+@{
+    ViewData["Title"] = "Chỉnh sửa thú cưng";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Chỉnh sửa thông tin thú cưng</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+            
+            <input type="hidden" asp-for="MaThuCung" />
+            <input type="hidden" asp-for="MaKhachHang" />
+
+            <div class="form-group">
+                <label asp-for="TenThuCung" class="form-label">Tên thú cưng</label>
+                <input asp-for="TenThuCung" class="form-input" placeholder="Nhập tên thú cưng" />
+                <span asp-validation-for="TenThuCung" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Loai" class="form-label">Loại</label>
+                <select asp-for="Loai" class="form-select">
+                    <option value="">-- Chọn loại --</option>
+                    <option value="Chó">Chó</option>
+                    <option value="Mèo">Mèo</option>
+                    <option value="Khác">Khác</option>
+                </select>
+                <span asp-validation-for="Loai" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Giong" class="form-label">Giống</label>
+                <input asp-for="Giong" class="form-input" placeholder="Ví dụ: Golden Retriever, Mèo Ba Tư..." />
+                <span asp-validation-for="Giong" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="GioiTinh" class="form-label">Giới tính</label>
+                <select asp-for="GioiTinh" class="form-select">
+                    <option value="">-- Chọn giới tính --</option>
+                    <option value="Đực">Đực</option>
+                    <option value="Cái">Cái</option>
+                </select>
+                <span asp-validation-for="GioiTinh" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NamSinh" class="form-label">Năm sinh</label>
+                <input asp-for="NamSinh" type="number" min="1900" max="2025" class="form-input" placeholder="Ví dụ: 2020" />
+                <span asp-validation-for="NamSinh" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CanNang" class="form-label">Cân nặng (kg)</label>
+                <input asp-for="CanNang" type="number" step="0.1" class="form-input" placeholder="Nhập cân nặng" />
+                <span asp-validation-for="CanNang" class="text-danger"></span>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 24px;">
+                <button type="submit" class="btn btn-primary" style="flex: 1;">Cập nhật</button>
+                <a asp-action="Index" class="btn btn-secondary" style="flex: 1;">Hủy</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

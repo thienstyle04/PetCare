@@ -1,0 +1,90 @@
+﻿@model PetCare_web.Models.DTO.RegisterNhanVienDTO
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Thêm mới nhân viên";
+}
+
+<div class="card">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="card-title">Thêm Mới Nhân Viên</h3>
+        <a asp-action="Index" class="btn btn-secondary">← Quay lại</a>
+    </div>
+    <div class="card-body">
+        @if (ViewData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+        }
+
+        <form method="post" asp-action="Create">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <!-- Thông tin tài khoản -->
+                <div>
+                    <h5 style="color: #2563eb; margin-bottom: 20px; font-weight: 600;">🔐 Thông Tin Tài Khoản</h5>
+
+                    <div class="form-group">
+                        <label asp-for="TenDangNhap" class="form-label">Tên đăng nhập <span class="text-danger">*</span></label>
+                        <input asp-for="TenDangNhap" class="form-input" placeholder="Nhập tên đăng nhập" />
+                        <span asp-validation-for="TenDangNhap" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email" class="form-label">Email <span class="text-danger">*</span></label>
+                        <input asp-for="Email" type="email" class="form-input" placeholder="example@email.com" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="MatKhau" class="form-label">Mật khẩu <span class="text-danger">*</span></label>
+                        <input asp-for="MatKhau" type="password" class="form-input" placeholder="Tối thiểu 6 ký tự" />
+                        <span asp-validation-for="MatKhau" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Thông tin cá nhân -->
+                <div>
+                    <h5 style="color: #2563eb; margin-bottom: 20px; font-weight: 600;">👤 Thông Tin Cá Nhân</h5>
+
+                    <div class="form-group">
+                        <label asp-for="HoTen" class="form-label">Họ và tên <span class="text-danger">*</span></label>
+                        <input asp-for="HoTen" class="form-input" placeholder="Nguyễn Văn A" />
+                        <span asp-validation-for="HoTen" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="SoDienThoai" class="form-label">Số điện thoại</label>
+                        <input asp-for="SoDienThoai" class="form-input" placeholder="0123456789" />
+                        <span asp-validation-for="SoDienThoai" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ChucVu" class="form-label">Chức vụ</label>
+                        <select asp-for="ChucVu" class="form-select">
+                            <option value="">-- Chọn chức vụ --</option>
+                            <option value="TiepTan">Tiếp Tân</option>
+                            <option value="NhanVienSpa">Nhân Viên Spa</option>
+                            <option value="BacSi">Bác Sĩ</option>
+                            <option value="QuanLy">Quản Lý</option>
+                        </select>
+                        <span asp-validation-for="ChucVu" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="NgayVaoLam" class="form-label">Ngày vào làm</label>
+                        <input asp-for="NgayVaoLam" type="date" class="form-input" />
+                        <span asp-validation-for="NgayVaoLam" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; display: flex; gap: 12px; justify-content: flex-end;">
+                <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+                <button type="submit" class="btn btn-primary">Lưu Nhân Viên</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

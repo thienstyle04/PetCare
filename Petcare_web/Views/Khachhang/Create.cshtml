@@ -1,0 +1,57 @@
+﻿@model Petcare_web.Models.DTO.KhachHangDTO
+@{
+    ViewData["Title"] = "Hoàn tất hồ sơ";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml"; // Sử dụng layout chung, vì chưa có menu khách hàng
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3 class="text-center">Chào mừng bạn đến với PetCare!</h3>
+                    <p class="text-center text-muted">Vui lòng hoàn tất thông tin cá nhân để tiếp tục.</p>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="HoTen" class="form-label">Họ và tên</label>
+                            <input asp-for="HoTen" class="form-control" placeholder="Nhập họ tên đầy đủ của bạn" />
+                            <span asp-validation-for="HoTen" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="SoDienThoai" class="form-label">Số điện thoại</label>
+                            <input asp-for="SoDienThoai" class="form-control" placeholder="Nhập số điện thoại" />
+                            <span asp-validation-for="SoDienThoai" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="DiaChi" class="form-label">Địa chỉ</label>
+                            <input asp-for="DiaChi" class="form-control" placeholder="Nhập địa chỉ của bạn" />
+                            <span asp-validation-for="DiaChi" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="NgaySinh" class="form-label">Ngày sinh</label>
+                            <input asp-for="NgaySinh" type="date" class="form-control" />
+                            <span asp-validation-for="NgaySinh" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Lưu thông tin và tiếp tục</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

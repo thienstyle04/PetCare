@@ -1,0 +1,48 @@
+﻿@model Petcare_web.Models.DTO.DanhGiaDTO
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chi tiết Đánh giá";
+}
+
+<div class="card">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="card-title">@ViewData["Title"] #@Model.MaDanhGia</h3>
+        <a asp-action="Index" class="btn btn-secondary">← Quay lại</a>
+    </div>
+    <div class="card-body">
+        <dl style="display: grid; grid-template-columns: 200px 1fr; gap: 16px; margin: 0;">
+            <dt style="font-weight: 600; color: #374151;">Khách hàng</dt>
+            <dd style="margin: 0; color: #4b5563;">@Model.TenKhachHang</dd>
+
+            <dt style="font-weight: 600; color: #374151;">Lịch hẹn liên quan</dt>
+            <dd style="margin: 0; color: #4b5563;">#@Model.MaLichHen</dd>
+
+            <dt style="font-weight: 600; color: #374151;">Dịch vụ</dt>
+            <dd style="margin: 0; color: #4b5563;">@Model.TenDichVu</dd>
+
+            <dt style="font-weight: 600; color: #374151;">Ngày tạo</dt>
+            <dd style="margin: 0; color: #4b5563;">@Model.NgayTao.ToString("dd/MM/yyyy HH:mm")</dd>
+
+            <dt style="font-weight: 600; color: #374151;">Điểm số</dt>
+            <dd style="margin: 0;">
+                <span style="color: #f59e0b; font-size: 20px;">
+                    @for (int i = 0; i < Model.DiemSo; i++)
+                    {
+                        <span>★</span>
+                    }
+                    @for (int i = Model.DiemSo; i < 5; i++)
+                    {
+                        <span style="color: #d1d5db;">☆</span>
+                    }
+                </span>
+                <span style="margin-left: 8px; color: #6b7280;">(@Model.DiemSo/5)</span>
+            </dd>
+
+            <dt style="font-weight: 600; color: #374151;">Bình luận</dt>
+            <dd style="margin: 0; color: #4b5563; white-space: pre-wrap;">@(string.IsNullOrWhiteSpace(Model.BinhLuan) ? "(Không có bình luận)" : Model.BinhLuan)</dd>
+        </dl>
+    </div>
+    <div style="padding: 16px; background-color: #f9fafb; border-top: 1px solid #e5e7eb;">
+        <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+    </div>
+</div>

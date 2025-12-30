@@ -1,0 +1,247 @@
+﻿@model Petcare_web.Models.DTO.LichHenDTO
+@{
+    ViewData["Title"] = "Chi tiết lịch hẹn";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<style>
+    .info-section {
+        margin-bottom: 20px;
+    }
+
+    .info-row {
+        display: flex;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .info-row:last-child {
+        border-bottom: none;
+    }
+
+    .info-label {
+        font-weight: 600;
+        color: #555;
+        width: 180px;
+        flex-shrink: 0;
+    }
+
+    .info-value {
+        color: #333;
+        flex: 1;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .status-pending {
+        background: #fff3cd;
+        color: #856404;
+    }
+
+    .status-confirmed {
+        background: #d1ecf1;
+        color: #0c5460;
+    }
+
+    .status-completed {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    .status-cancelled {
+        background: #f8d7da;
+        color: #721c24;
+    }
+
+    .note-box {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 6px;
+        border-left: 4px solid #667eea;
+    }
+</style>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Chi tiết lịch hẹn #LH@(Model.MaLichHen)</h3>
+        <div>
+            <a asp-action="Index" class="btn btn-secondary">← Quay lại</a>
+            @if (Model.TrangThai == "Chờ xác nhận" || Model.TrangThai == "Đã xác nhận")
+            {
+                <form asp-action="Cancel" asp-route-id="@Model.MaLichHen" method="post" style="display:inline; margin-left: 10px;" 
+                      onsubmit="return confirm('Bạn có chắc chắn muốn hủy lịch hẹn này?');">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn" style="background-color: #dc2626; color: white; border: none; padding: 8px 16px; font-size: 14px; font-weight: 500; border-radius: 4px; cursor: pointer;">
+                        ❌ Hủy lịch hẹn
+                    </button>
+                </form>
+            }
+        </div>
+    </div>
+    <div class="card-body">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+        }
+        <div class="info-section">
+            <div class="info-row">
+                <div class="info-label">Dịch vụ:</div>
+                <div class="info-value">@Model.TenDichVu</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Thú cưng:</div>
+                <div class="info-value">@Model.TenThuCung</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Ngày giờ hẹn:</div>
+                <div class="info-value">@Model.NgayGioHen.ToString("dd/MM/yyyy HH:mm")</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Nhân viên:</div>
+                <div class="info-value">@(Model.TenNhanVien ?? "Chưa phân công")</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Trạng thái:</div>
+                <div class="info-value">
+                    @if (Model.TrangThai == "Đã xác nhận")
+                    {
+                        <span class="status-badge status-confirmed">@Model.TrangThai</span>
+                    }
+                    else if (Model.TrangThai == "Hoàn thành")
+                    {
+                        <span class="status-badge status-completed">@Model.TrangThai</span>
+                    }
+                    else if (Model.TrangThai == "Đã hủy")
+                    {
+                        <span class="status-badge status-cancelled">@Model.TrangThai</span>
+                    }
+                    else
+                    {
+                        <span class="status-badge status-pending">@Model.TrangThai</span>
+                    }
+                </div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.GhiChu))
+            {
+                <div class="info-row">
+                    <div class="info-label">Ghi chú:</div>
+                    <div class="info-value">
+                        <div class="note-box">@Model.GhiChu</div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (Model.TrangThai == "Hoàn thành" && ViewBag.HoSoDichVu != null)
+        {
+            var hoSo = ViewBag.HoSoDichVu as Petcare_web.Models.DTO.HoSoDichVuDTO;
+            if (hoSo != null)
+            {
+                <div class="mt-4 pt-4 border-top">
+                    <h5 class="mb-3" style="color: #667eea; font-weight: 600;">
+                        <i class="bi bi-images"></i> Kết quả dịch vụ
+                    </h5>
+                    
+                    <div class="images-grid">
+                        @if (!string.IsNullOrEmpty(hoSo.AnhTruoc))
+                        {
+                            <div class="image-container">
+                                <div class="image-label">Ảnh trước</div>
+                                <img src="@hoSo.AnhTruoc" alt="Ảnh trước" class="service-image" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="image-container">
+                                <div class="image-label">Ảnh trước</div>
+                                <div class="no-image">Chưa có ảnh</div>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrEmpty(hoSo.AnhSau))
+                        {
+                            <div class="image-container">
+                                <div class="image-label">Ảnh sau</div>
+                                <img src="@hoSo.AnhSau" alt="Ảnh sau" class="service-image" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="image-container">
+                                <div class="image-label">Ảnh sau</div>
+                                <div class="no-image">Chưa có ảnh</div>
+                            </div>
+                        }
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(hoSo.GhiChuDichVu))
+                    {
+                        <div class="mt-3">
+                            <strong style="color: #667eea;">Ghi chú từ nhân viên:</strong>
+                            <div class="note-box mt-2">@hoSo.GhiChuDichVu</div>
+                        </div>
+                    }
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<style>
+    .images-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 15px;
+    }
+
+    .image-container {
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .image-label {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 12px 15px;
+        font-weight: 600;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .service-image {
+        width: 100%;
+        height: 300px;
+        object-fit: contain;
+        display: block;
+        background: #f9fafb;
+    }
+
+    .no-image {
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f3f4f6;
+        color: #9ca3af;
+        font-style: italic;
+    }
+</style>

@@ -1,0 +1,387 @@
+2025-10-15 09:25:42.529 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-15 09:25:42.834 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-15 09:49:25.057 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-15 09:49:25.340 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-15 09:49:30.105 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-15 09:49:30.121 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 09:49:30.124 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 09:49:39.531 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-15 09:49:47.603 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-15 10:15:32.670 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-15 10:15:32.907 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-15 10:15:34.166 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 10:15:34.167 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 10:15:36.014 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-15 10:15:36.019 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 10:15:36.020 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 10:15:36.044 +07:00 [INF] Returned 1 pets for page 1.
+2025-10-15 10:15:36.776 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-15 10:15:36.782 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 10:15:36.783 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 10:15:36.807 +07:00 [DBG] Returned 1 employees.
+2025-10-15 10:15:38.846 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-15 10:15:38.849 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 10:15:38.850 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 10:15:38.865 +07:00 [DBG] Returned 1 payment records.
+2025-10-15 10:15:39.972 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-15 10:15:39.976 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 10:15:39.977 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 10:15:39.982 +07:00 [DBG] Successfully retrieved 9 reviews.
+2025-10-15 10:15:39.983 +07:00 [INF] Completed getting all reviews. Total count: 9
+2025-10-15 10:15:43.776 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-15 10:15:43.782 +07:00 [DBG] Successfully retrieved 9 reviews.
+2025-10-15 10:15:43.784 +07:00 [INF] Completed getting all reviews. Total count: 9
+2025-10-15 10:15:44.481 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-15 10:15:44.485 +07:00 [DBG] Successfully retrieved 9 reviews.
+2025-10-15 10:15:44.485 +07:00 [INF] Completed getting all reviews. Total count: 9
+2025-10-15 10:15:50.954 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-15 10:15:50.958 +07:00 [DBG] Returned 1 payment records.
+2025-10-15 10:22:47.975 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-15 10:22:47.980 +07:00 [DBG] Returned 1 employees.
+2025-10-15 10:23:16.390 +07:00 [INF] Attempting to register employee: meanwuan12351
+2025-10-15 10:23:16.432 +07:00 [ERR] Error registering employee: meanwuan12351
+System.Exception: Tên đăng nhập đã tồn tại.
+   at PetCare.Repositories.NhanVienRepositories.RegisterNhanVienAsync(RegisterNhanVienDTO dto) in D:\web2\PetCare\PetCare\Repositories\NhanVienRepositories.cs:line 24
+   at PetCare.Controllers.NhanVienController.RegisterNhanVien(RegisterNhanVienDTO dto) in D:\web2\PetCare\PetCare\Controllers\NhanVienController.cs:line 38
+2025-10-15 10:23:41.315 +07:00 [INF] Attempting to register employee: meanwuan12351
+2025-10-15 10:23:41.362 +07:00 [ERR] Error registering employee: meanwuan12351
+System.Exception: Tên đăng nhập đã tồn tại.
+   at PetCare.Repositories.NhanVienRepositories.RegisterNhanVienAsync(RegisterNhanVienDTO dto) in D:\web2\PetCare\PetCare\Repositories\NhanVienRepositories.cs:line 24
+   at PetCare.Controllers.NhanVienController.RegisterNhanVien(RegisterNhanVienDTO dto) in D:\web2\PetCare\PetCare\Controllers\NhanVienController.cs:line 38
+2025-10-15 10:23:55.841 +07:00 [INF] Attempting to register employee: meanwuan9
+2025-10-15 10:23:56.115 +07:00 [INF] Employee meanwuan9 registered successfully with ID: 8
+2025-10-15 10:23:56.135 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-15 10:23:56.137 +07:00 [DBG] Returned 2 employees.
+2025-10-15 10:24:26.865 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 10:24:27.117 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 10:52:14.295 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 10:52:14.540 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 10:52:16.341 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 10:52:16.343 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 13:14:56.701 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 13:14:56.969 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 13:14:58.951 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 13:14:58.952 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 13:21:42.894 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 13:21:43.197 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 13:21:46.552 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 13:21:46.554 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 13:23:20.009 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 13:23:20.346 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 13:32:41.909 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 13:32:42.183 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 13:33:51.941 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 13:33:52.220 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 13:43:47.334 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 13:43:47.597 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 13:43:58.554 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 13:43:58.556 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 14:14:11.913 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 14:14:12.186 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 14:14:16.725 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 14:14:16.726 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 14:55:20.505 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 14:55:20.839 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 14:55:25.811 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 14:55:25.814 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 15:01:06.547 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 15:01:06.810 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 15:03:11.579 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 15:03:11.895 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 15:03:13.356 +07:00 [INF] Fetching employee ID: 24
+2025-10-15 15:03:13.428 +07:00 [WRN] Employee ID 24 not found.
+2025-10-15 15:08:07.889 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 15:08:08.201 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 15:08:09.717 +07:00 [INF] Fetching employee ID: 24
+2025-10-15 15:08:09.787 +07:00 [WRN] Employee ID 24 not found.
+2025-10-15 15:10:16.851 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 15:10:16.927 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 15:10:38.813 +07:00 [INF] Fetching employee ID: 24
+2025-10-15 15:10:38.820 +07:00 [WRN] Employee ID 24 not found.
+2025-10-15 15:17:48.201 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 15:17:48.469 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 15:17:49.617 +07:00 [INF] Fetching employee ID: 24
+2025-10-15 15:25:55.008 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 15:25:55.296 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 15:26:33.971 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 15:26:33.973 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 16:06:44.859 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 16:06:45.158 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 16:09:48.796 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 16:09:49.075 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 16:10:01.255 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 16:10:01.257 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 16:39:06.535 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 16:39:06.854 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 16:43:17.711 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 16:43:17.992 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 16:43:19.539 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 16:43:19.546 +07:00 [WRN] Employee ID 8 not found.
+2025-10-15 16:46:10.560 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 16:46:10.846 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 16:46:12.386 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 16:48:00.175 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 16:48:00.464 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 16:49:07.608 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:09:05.473 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:09:05.797 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:09:08.510 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:13:22.868 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:13:23.144 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:13:24.663 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:18:53.546 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:18:53.834 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:18:55.316 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:22:17.078 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:22:17.402 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:22:18.357 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:25:13.930 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:25:14.259 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:25:16.423 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:27:26.522 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:27:26.841 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:27:28.387 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:30:41.609 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:30:41.935 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:30:44.829 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:34:42.445 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:34:42.745 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:34:43.849 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:37:54.011 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:37:54.296 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:40:02.253 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:40:02.522 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:40:03.842 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:41:11.509 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:43:40.681 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:43:40.970 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:43:42.459 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:44:30.088 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:50:03.803 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:50:04.059 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 17:50:05.343 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:50:27.207 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:50:39.965 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 17:51:15.376 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 17:51:15.377 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 17:59:41.329 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 17:59:41.624 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 18:00:49.090 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 18:00:49.402 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 18:01:55.076 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 18:01:55.432 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 18:03:39.003 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 18:03:39.285 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 18:05:30.821 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 18:05:31.146 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 18:05:32.443 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-15 18:05:32.462 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 18:05:32.464 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 18:05:32.501 +07:00 [INF] Returned 1 pets for page 1.
+2025-10-15 19:00:47.739 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 19:00:48.067 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 19:01:54.501 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 19:01:54.871 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 19:02:03.848 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 19:02:03.851 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 19:03:11.631 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 19:03:11.975 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 19:03:14.203 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 19:03:14.204 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 19:03:17.536 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 19:03:17.538 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 19:03:39.258 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 19:04:09.099 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-15 19:04:09.102 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 19:04:09.103 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 19:04:09.121 +07:00 [INF] Returned 1 pets for page 1.
+2025-10-15 19:39:07.879 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan123512
+2025-10-15 19:39:08.160 +07:00 [INF] Người dùng meanwuan123512 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-15 19:39:08.536 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 21
+2025-10-15 19:39:08.555 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 19:39:08.556 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 19:39:22.484 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 19:39:22.557 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 19:39:47.024 +07:00 [WRN] Attempting to register user: meanwuan
+2025-10-15 19:39:47.363 +07:00 [ERR] An exception occurred in the database while saving changes for context type 'PetCare.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'HoTen', table 'PetCare.dbo.KhachHang'; column does not allow nulls. INSERT fails.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:d2edcc32-a4e5-464c-b6df-9cbe9b1930ff
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'HoTen', table 'PetCare.dbo.KhachHang'; column does not allow nulls. INSERT fails.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:d2edcc32-a4e5-464c-b6df-9cbe9b1930ff
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-10-15 19:39:47.424 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'HoTen', table 'PetCare.dbo.KhachHang'; column does not allow nulls. INSERT fails.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:d2edcc32-a4e5-464c-b6df-9cbe9b1930ff
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at PetCare.Controllers.AccountController.Register(RegisterNguoiDungDTO registerNguoiDungDTO) in D:\web2\PetCare\PetCare\Controllers\AccountController.cs:line 82
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-10-15 19:49:54.512 +07:00 [WRN] Attempting to register user: meanwuan
+2025-10-15 19:49:54.729 +07:00 [ERR] Identity registration failed for user meanwuan. Errors: [{"Code":"DuplicateUserName","Description":"Username 'meanwuan' is already taken.","$type":"IdentityError"}]
+2025-10-15 19:50:10.183 +07:00 [WRN] Attempting to register user: meanwuan312
+2025-10-15 19:50:10.522 +07:00 [INF] User meanwuan312 registered successfully.
+2025-10-15 19:50:29.191 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan312
+2025-10-15 19:50:29.324 +07:00 [INF] Người dùng meanwuan312 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-15 19:50:29.416 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 26
+2025-10-15 19:50:29.424 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 19:50:29.425 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:33:21.304 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan312
+2025-10-15 20:33:21.563 +07:00 [INF] Người dùng meanwuan312 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-15 20:33:21.668 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 26
+2025-10-15 20:33:21.685 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:33:21.686 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:37:00.551 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng:  meanwuan312
+2025-10-15 20:37:00.647 +07:00 [WRN] Đăng nhập thất bại: Tên đăng nhập hoặc mật khẩu không chính xác cho  meanwuan312.
+2025-10-15 20:37:06.609 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan312
+2025-10-15 20:37:06.804 +07:00 [INF] Người dùng meanwuan312 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-15 20:37:06.894 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 26
+2025-10-15 20:37:06.902 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:37:06.903 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:39:28.317 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan312
+2025-10-15 20:39:28.577 +07:00 [INF] Người dùng meanwuan312 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-15 20:39:28.686 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 26
+2025-10-15 20:39:28.701 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:39:28.703 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:45:40.533 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan312
+2025-10-15 20:45:40.789 +07:00 [INF] Người dùng meanwuan312 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-15 20:45:40.887 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 26
+2025-10-15 20:45:40.901 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:45:40.902 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:47:20.515 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan312
+2025-10-15 20:47:20.763 +07:00 [INF] Người dùng meanwuan312 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-15 20:47:20.858 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 26
+2025-10-15 20:47:20.871 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:47:20.872 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:47:22.521 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 26
+2025-10-15 20:48:00.166 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan312
+2025-10-15 20:48:00.442 +07:00 [INF] Người dùng meanwuan312 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-15 20:48:00.561 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 26
+2025-10-15 20:48:00.577 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:48:00.578 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:48:20.152 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan9
+2025-10-15 20:48:20.221 +07:00 [INF] Người dùng meanwuan9 đã đăng nhập thành công với vai trò: NHANVIEN
+2025-10-15 20:48:23.367 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:48:23.369 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:48:32.741 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:48:32.742 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:48:34.829 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-15 20:48:34.832 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:48:34.832 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:48:34.850 +07:00 [INF] Returned 1 pets for page 1.
+2025-10-15 20:48:38.833 +07:00 [INF] Fetching all pets with filterOn: null, query: null
+2025-10-15 20:48:38.836 +07:00 [INF] Returned 1 pets for page 1.
+2025-10-15 20:48:39.793 +07:00 [INF] Fetching employee ID: 8
+2025-10-15 20:49:29.117 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-15 20:49:29.362 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-15 20:49:34.685 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-15 20:49:34.699 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:34.701 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:38.098 +07:00 [INF] Fetching all employees with Filter, Sort, Pagination.
+2025-10-15 20:49:38.111 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:38.111 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:38.150 +07:00 [DBG] Returned 2 employees.
+2025-10-15 20:49:40.831 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:40.832 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:42.583 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-15 20:49:42.586 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:42.587 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:42.594 +07:00 [DBG] Successfully returned 1 services.
+2025-10-15 20:49:43.884 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-15 20:49:43.887 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:43.888 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:43.904 +07:00 [DBG] Returned 1 payment records.
+2025-10-15 20:49:45.804 +07:00 [INF] Request GET ALL received. FilterOn: null, SortBy: null
+2025-10-15 20:49:45.808 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:45.810 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-15 20:49:45.819 +07:00 [DBG] Successfully retrieved 9 reviews.
+2025-10-15 20:49:45.820 +07:00 [INF] Completed getting all reviews. Total count: 9
+2025-10-15 20:49:50.232 +07:00 [INF] Request GET ALL Payments started. SortBy: null
+2025-10-15 20:49:50.236 +07:00 [DBG] Returned 1 payment records.
+2025-10-15 20:49:53.348 +07:00 [INF] Request started for GetAllDichVu. Filter: null/null
+2025-10-15 20:49:53.353 +07:00 [DBG] Successfully returned 1 services.

@@ -1,0 +1,93 @@
+﻿@model Petcare_web.Models.DTO.LichHenRequestDTO
+@{
+    ViewData["Title"] = "Đặt lịch hẹn";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    
+    var pets = ViewBag.Pets as List<Petcare_web.Models.DTO.ThuCungDTO> ?? new List<Petcare_web.Models.DTO.ThuCungDTO>();
+    var services = ViewBag.Services as List<Petcare_web.Models.DTO.DichVuDTO> ?? new List<Petcare_web.Models.DTO.DichVuDTO>();
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Đặt lịch hẹn mới</h3>
+    </div>
+    <div class="card-body">
+        @if (!pets.Any())
+        {
+            <div class="alert alert-info">
+                Bạn cần có ít nhất một thú cưng để đặt lịch hẹn. 
+                <a asp-controller="CustomerPets" asp-action="Add">Thêm thú cưng ngay</a>
+            </div>
+        }
+        else
+        {
+            <form asp-action="Add" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="form-group">
+                    <label asp-for="MaThuCung" class="form-label">Chọn thú cưng</label>
+                    <select asp-for="MaThuCung" class="form-select">
+                        <option value="">-- Chọn thú cưng --</option>
+                        @foreach (var pet in pets)
+                        {
+                            <option value="@pet.MaThuCung">@pet.TenThuCung (@pet.Loai)</option>
+                        }
+                    </select>
+                    <span asp-validation-for="MaThuCung" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MaDichVu" class="form-label">Dịch vụ</label>
+                    <select asp-for="MaDichVu" class="form-select">
+                        <option value="">-- Chọn dịch vụ --</option>
+                        @foreach (var service in services)
+                        {
+                            <option value="@service.MaDichVu">@service.TenDichVu - @service.Gia.ToString("N0")đ</option>
+                        }
+                    </select>
+                    <span asp-validation-for="MaDichVu" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="NgayHen" class="form-label">Ngày hẹn</label>
+                    <input asp-for="NgayHen" type="date" class="form-input" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                    <span asp-validation-for="NgayHen" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GioHen" class="form-label">Giờ hẹn</label>
+                    <select asp-for="GioHen" class="form-select">
+                        <option value="">-- Chọn giờ --</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                    </select>
+                    <span asp-validation-for="GioHen" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GhiChu" class="form-label">Ghi chú</label>
+                    <textarea asp-for="GhiChu" class="form-textarea" placeholder="Mô tả triệu chứng hoặc yêu cầu đặc biệt..."></textarea>
+                    <span asp-validation-for="GhiChu" class="text-danger"></span>
+                </div>
+
+                <div style="display: flex; gap: 12px; margin-top: 24px;">
+                    <button type="submit" class="btn btn-primary btn-full">Xác nhận đặt lịch</button>
+                </div>
+                
+                <div style="margin-top: 12px; text-align: center;">
+                    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+                </div>
+            </form>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

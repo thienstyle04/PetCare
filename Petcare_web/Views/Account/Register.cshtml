@@ -1,0 +1,340 @@
+﻿@model Petcare_web.Models.DTO.RegisterNguoiDungDTO
+@{
+    ViewData["Title"] = "Đăng ký tài khoản";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - PetCare</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #2d3748;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .register-container {
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+        .logo-subtitle {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .card-header {
+            padding: 24px 24px 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        .card-footer {
+            padding: 20px 24px;
+            border-top: 1px solid #e5e7eb;
+            background: #f9fafb;
+            border-radius: 0 0 12px 12px;
+            text-align: center;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .card-footer a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .card-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        /* Button */
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .text-danger {
+            color: #dc2626;
+            font-size: 13px;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .validation-summary {
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        /* Password Strength Indicator */
+        .password-requirements {
+            margin-top: 8px;
+            padding: 12px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .requirement {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            color: #6b7280;
+            transition: color 0.2s;
+        }
+
+        .requirement:last-child {
+            margin-bottom: 0;
+        }
+
+        .requirement.met {
+            color: #059669;
+        }
+
+        .requirement-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            border-radius: 50%;
+            border: 2px solid #9ca3af;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            transition: all 0.2s;
+        }
+
+        .requirement.met .requirement-icon {
+            background: #059669;
+            border-color: #059669;
+            color: white;
+        }
+
+        .requirement.met .requirement-icon::before {
+            content: "✓";
+        }
+
+        @@media (max-width: 768px) {
+            .register-container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="logo-section">
+            <div class="logo">PetCare</div>
+            <p class="logo-subtitle">Hệ thống quản lý chăm sóc thú cưng</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Đăng ký tài khoản</h2>
+                <p class="card-subtitle">Điền thông tin của bạn để bắt đầu</p>
+            </div>
+
+            <div class="card-body">
+                <form asp-action="Register" method="post">
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+                    }
+
+                    <div class="form-group">
+                        <label asp-for="HoTen" class="form-label">Họ và tên</label>
+                        <input asp-for="HoTen" class="form-input" placeholder="Nhập họ và tên của bạn" />
+                        <span asp-validation-for="HoTen" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="TenDangNhap" class="form-label">Tên đăng nhập</label>
+                        <input asp-for="TenDangNhap" class="form-input" placeholder="Chọn tên đăng nhập" />
+                        <span asp-validation-for="TenDangNhap" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email" class="form-label">Email</label>
+                        <input asp-for="Email" type="email" class="form-input" placeholder="example@email.com" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="MatKhau" class="form-label">Mật khẩu</label>
+                        <input asp-for="MatKhau" type="password" class="form-input" id="passwordInput" placeholder="Nhập mật khẩu" />
+                        <span asp-validation-for="MatKhau" class="text-danger"></span>
+                        
+                        @* Password Requirements Indicator - Luôn hiển thị *@
+                        <div id="passwordRequirements" class="password-requirements">
+                            <div class="requirement" data-requirement="length">
+                                <span class="requirement-icon"></span>
+                                <span>Phải ít nhất 6 ký tự</span>
+                            </div>
+                            <div class="requirement" data-requirement="uppercase">
+                                <span class="requirement-icon"></span>
+                                <span>Có ít nhất 1 chữ hoa</span>
+                            </div>
+                            <div class="requirement" data-requirement="number">
+                                <span class="requirement-icon"></span>
+                                <span>Có ít nhất 1 chữ số</span>
+                            </div>
+                            <div class="requirement" data-requirement="special">
+                                <span class="requirement-icon"></span>
+                                <span>Có ít nhất 1 ký tự đặc biệt (!@@#$%^&*)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Tạo tài khoản</button>
+                </form>
+            </div>
+
+            <div class="card-footer">
+                Đã có tài khoản? <a asp-action="Login" asp-controller="Account">Đăng nhập ngay</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            const passwordInput = $('#passwordInput');
+            
+            // Kiểm tra từng điều kiện khi nhập
+            passwordInput.on('input', function() {
+                const password = $(this).val();
+                
+                // Kiểm tra độ dài (6 ký tự)
+                if (password.length >= 6) {
+                    $('[data-requirement="length"]').addClass('met');
+                } else {
+                    $('[data-requirement="length"]').removeClass('met');
+                }
+                
+                // Kiểm tra chữ hoa
+                if (/[A-Z]/.test(password)) {
+                    $('[data-requirement="uppercase"]').addClass('met');
+                } else {
+                    $('[data-requirement="uppercase"]').removeClass('met');
+                }
+                
+                // Kiểm tra chữ số
+                if (/[0-9]/.test(password)) {
+                    $('[data-requirement="number"]').addClass('met');
+                } else {
+                    $('[data-requirement="number"]').removeClass('met');
+                }
+                
+                // Kiểm tra ký tự đặc biệt
+                var specialChars = /[!@@#$%^&*(),.?":{}|<>]/;
+                if (specialChars.test(password)) {
+                    $('[data-requirement="special"]').addClass('met');
+                } else {
+                    $('[data-requirement="special"]').removeClass('met');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

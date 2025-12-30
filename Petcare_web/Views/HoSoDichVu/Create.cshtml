@@ -1,0 +1,153 @@
+﻿@model Petcare_web.Models.DTO.HoSoDichVuDTO
+
+@{
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+    ViewData["Title"] = "Tạo Hồ sơ Dịch vụ";
+    var lichHenList = ViewBag.LichHenList as List<Petcare_web.Models.DTO.LichHenDTO> ?? new List<Petcare_web.Models.DTO.LichHenDTO>();
+    var maNhanVien = ViewBag.MaNhanVien;
+}
+
+<style>
+    .image-preview {
+        margin-top: 10px;
+        max-width: 300px;
+    }
+    .image-preview img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+</style>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Tạo Hồ sơ Dịch vụ mới</h3>
+    </div>
+
+    <div class="card-body">
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <!-- Thông tin nhân viên -->
+            <div style="margin-bottom: 30px;">
+                <h5 style="color: #667eea; margin-bottom: 15px; font-weight: 600;">Thông tin Nhân viên</h5>
+                <div class="info-box">
+                    <strong>Mã nhân viên:</strong>
+                    <span style="font-size: 18px; font-weight: 600; color: #2563eb;">@maNhanVien</span>
+                </div>
+                <input type="hidden" asp-for="MaNhanVien" value="@maNhanVien" />
+            </div>
+
+            <!-- Chọn lịch hẹn -->
+            <div style="margin-bottom: 30px;">
+                <h5 style="color: #667eea; margin-bottom: 15px; font-weight: 600;">Lịch hẹn</h5>
+                <div class="form-group">
+                    <label class="form-label">
+                        Chọn lịch hẹn <span style="color: #e74c3c;">*</span>
+                    </label>
+                    @if (lichHenList.Any())
+                    {
+                        <select asp-for="MaLichHen" class="form-control">
+                            <option value="">-- Chọn lịch hẹn --</option>
+                            @foreach (var lichHen in lichHenList)
+                            {
+                                <option value="@lichHen.MaLichHen">
+                                    #@lichHen.MaLichHen - @lichHen.TenDichVu - @lichHen.TenKhachHang - 
+                                    @lichHen.NgayGioHen.ToString("dd/MM/yyyy HH:mm") - [@lichHen.TrangThai]
+                                </option>
+                            }
+                        </select>
+                        <small class="help-text">💡 Chỉ hiển thị lịch hẹn đã xác nhận hoặc hoàn thành</small>
+                    }
+                    else
+                    {
+                        <p style="color: #e74c3c; background: #fee; padding: 12px; border-radius: 8px; border-left: 4px solid #e74c3c;">
+                            ⚠️ Không có lịch hẹn nào khả dụng. Chỉ có thể tạo hồ sơ cho lịch hẹn đã xác nhận.
+                        </p>
+                        <select asp-for="MaLichHen" class="form-control" disabled>
+                            <option value="">-- Không có lịch hẹn --</option>
+                        </select>
+                    }
+                    <span asp-validation-for="MaLichHen" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Hình ảnh -->
+            <div style="margin-bottom: 30px;">
+                <h5 style="color: #667eea; margin-bottom: 15px; font-weight: 600;">📸 Hình ảnh Trước/Sau</h5>
+                
+                <div class="form-group">
+                    <label class="form-label">Ảnh trước khi thực hiện dịch vụ</label>
+                    <input type="file" name="AnhTruocFile" class="form-control" accept="image/*" />
+                    <small class="help-text">💡 Chọn file ảnh (JPG, PNG, GIF - Tối đa 10MB)</small>
+                    <div id="previewAnhTruoc" class="image-preview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Ảnh sau khi thực hiện dịch vụ</label>
+                    <input type="file" name="AnhSauFile" class="form-control" accept="image/*" />
+                    <small class="help-text">💡 Ảnh so sánh kết quả sau khi hoàn thành dịch vụ</small>
+                    <div id="previewAnhSau" class="image-preview"></div>
+                </div>
+            </div>
+
+            <!-- Ghi chú -->
+            <div style="margin-bottom: 30px;">
+                <h5 style="color: #667eea; margin-bottom: 15px; font-weight: 600;">📝 Ghi chú Dịch vụ</h5>
+                
+                <div class="form-group">
+                    <label class="form-label">Ghi chú chi tiết về dịch vụ đã thực hiện</label>
+                    <textarea asp-for="GhiChuDichVu" class="form-control" rows="5" 
+                              placeholder="Ví dụ: Thú cưng rất ngoan, tắm rửa sạch sẽ, cắt tỉa lông theo yêu cầu..."></textarea>
+                    <span asp-validation-for="GhiChuDichVu" class="text-danger"></span>
+                    <small class="help-text">💡 Ghi chú về tình trạng, kết quả dịch vụ</small>
+                </div>
+            </div>
+
+            <!-- Nút hành động -->
+            <div style="margin-top: 30px; border-top: 1px solid #e5e7eb; padding-top: 20px; display: flex; gap: 10px;">
+                <button type="submit" class="btn btn-primary" @(lichHenList.Any() ? "" : "disabled")>
+                    💾 Lưu hồ sơ
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    ↩️ Quay lại
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Preview ảnh trước khi upload
+        document.querySelector('input[name="AnhTruocFile"]').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('previewAnhTruoc').innerHTML = 
+                        '<img src="' + event.target.result + '" alt="Preview">';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.querySelector('input[name="AnhSauFile"]').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('previewAnhSau').innerHTML = 
+                        '<img src="' + event.target.result + '" alt="Preview">';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+}

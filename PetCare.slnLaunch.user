@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "API",
+    "Projects": [
+      {
+        "Path": "PetCare\\PetCare.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Petcare_web\\Petcare_web.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -1,0 +1,108 @@
+D:\web2\PetCare\Petcare_web\bin\Debug\net8.0\appsettings.Development.json
+D:\web2\PetCare\Petcare_web\bin\Debug\net8.0\appsettings.json
+D:\web2\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.staticwebassets.runtime.json
+D:\web2\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.staticwebassets.endpoints.json
+D:\web2\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.exe
+D:\web2\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.deps.json
+D:\web2\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.runtimeconfig.json
+D:\web2\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.dll
+D:\web2\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.pdb
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.GeneratedMSBuildEditorConfig.editorconfig
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.AssemblyInfoInputs.cache
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.AssemblyInfo.cs
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.csproj.CoreCompileInputs.cache
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.MvcApplicationPartsAssemblyInfo.cache
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.RazorAssemblyInfo.cache
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.RazorAssemblyInfo.cs
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.sourcelink.json
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\scopedcss\bundle\Petcare_web.styles.css
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\scopedcss\projectbundle\Petcare_web.bundle.scp.css
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.build.json
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.build.json.cache
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.development.json
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.dll
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\refint\Petcare_web.dll
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.pdb
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.genruntimeconfig.cache
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\ref\Petcare_web.dll
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\bin\Debug\net8.0\appsettings.Development.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\bin\Debug\net8.0\appsettings.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.staticwebassets.runtime.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.staticwebassets.endpoints.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.exe
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.deps.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.runtimeconfig.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.dll
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.pdb
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.GeneratedMSBuildEditorConfig.editorconfig
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.AssemblyInfoInputs.cache
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.AssemblyInfo.cs
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.csproj.CoreCompileInputs.cache
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.MvcApplicationPartsAssemblyInfo.cache
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.RazorAssemblyInfo.cache
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.RazorAssemblyInfo.cs
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.sourcelink.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\scopedcss\bundle\Petcare_web.styles.css
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\scopedcss\projectbundle\Petcare_web.bundle.scp.css
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.build.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.build.json.cache
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.development.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.dll
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\refint\Petcare_web.dll
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.pdb
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.genruntimeconfig.cache
+D:\Program\Product\duan\New folder (3)\PetCare\Petcare_web\obj\Debug\net8.0\ref\Petcare_web.dll
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\bin\Debug\net8.0\appsettings.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.staticwebassets.runtime.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.staticwebassets.endpoints.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.exe
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.deps.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.runtimeconfig.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.dll
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\bin\Debug\net8.0\Petcare_web.pdb
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.AssemblyInfoInputs.cache
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.AssemblyInfo.cs
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.csproj.CoreCompileInputs.cache
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.RazorAssemblyInfo.cache
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.RazorAssemblyInfo.cs
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.sourcelink.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\scopedcss\bundle\Petcare_web.styles.css
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\scopedcss\projectbundle\Petcare_web.bundle.scp.css
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.dll
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\refint\Petcare_web.dll
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.pdb
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.genruntimeconfig.cache
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\ref\Petcare_web.dll
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.csproj.AssemblyReference.cache
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_.F9E147D3.Up2Date
+D:\web2\PetCare\Petcare_web\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_web.csproj.AssemblyReference.cache
+D:\web2\PetCare\Petcare_web\obj\Debug\net8.0\Petcare_.F9E147D3.Up2Date
+C:\Users\CATTFAN\Desktop\PetCare\Petcare_web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

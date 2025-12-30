@@ -1,0 +1,66 @@
+﻿@model Petcare_web.Models.DTO.ThuCungDTO
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chỉnh sửa thông tin thú cưng";
+}
+
+<div class="card">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="card-title">@ViewData["Title"]: @Model.TenThuCung</h3>
+        <a asp-action="Index" class="btn btn-secondary">← Quay lại</a>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-action="Edit" asp-route-id="@Model.MaThuCung">
+            @if (ViewData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+            }
+
+            <input type="hidden" asp-for="MaThuCung" />
+
+            <div class="form-group">
+                <label asp-for="MaKhachHang" class="form-label">Chủ sở hữu</label>
+                <select asp-for="MaKhachHang" class="form-select" asp-items="@ViewBag.Customers">
+                </select>
+                <span asp-validation-for="MaKhachHang" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TenThuCung" class="form-label">Tên thú cưng</label>
+                <input asp-for="TenThuCung" class="form-input" />
+                <span asp-validation-for="TenThuCung" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Giong" class="form-label"></label>
+                <input asp-for="Giong" class="form-input" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Tuoi" class="form-label">Tuổi</label>
+                <input asp-for="Tuoi" type="number" class="form-input" min="0" max="50" placeholder="Ví dụ: 5" />
+                <span asp-validation-for="Tuoi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CanNang" class="form-label">Cân nặng (kg)</label>
+                <input asp-for="CanNang" type="number" step="0.01" class="form-input" />
+                <span asp-validation-for="CanNang" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ChuThich" class="form-label">Chú thích</label>
+                <textarea asp-for="ChuThich" class="form-textarea" rows="3"></textarea>
+            </div>
+
+            <div style="margin-top: 30px; display: flex; gap: 12px;">
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

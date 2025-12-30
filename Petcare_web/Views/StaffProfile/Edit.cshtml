@@ -1,0 +1,39 @@
+﻿@model PetCare_web.Models.DTO.NhanVienDTO
+@{
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+    ViewData["Title"] = "Sửa hồ sơ";
+}
+
+<h2>Chỉnh sửa thông tin nhân viên</h2>
+
+<form asp-action="Edit" asp-route-id="@Model.MaNhanVien" method="post">
+    <div class="form-group">
+        <label>Họ và tên</label>
+        <input asp-for="HoTen" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Chức vụ</label>
+        <input asp-for="ChucVu" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Số điện thoại</label>
+        <input asp-for="SoDienThoai" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input asp-for="NguoiDung.Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Ngày vào làm</label>
+        <input asp-for="NgayVaoLam" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Trạng thái</label>
+        <select asp-for="TrangThai" class="form-control">
+            <option value="true">Hoạt động</option>
+            <option value="false">Ngưng</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Lưu</button>
+    <a asp-action="Index" asp-route-id="@Model.MaNhanVien" class="btn btn-secondary">Hủy</a>
+</form>

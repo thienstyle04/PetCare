@@ -1,0 +1,112 @@
+@model Petcare_web.Models.DTO.ThuCungDTO
+@{
+    ViewData["Title"] = "Chi tiết thú cưng";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Thông tin chi tiết thú cưng</h3>
+    </div>
+    <div class="card-body">
+        <div style="background: #f9fafb; padding: 32px; border-radius: 8px; margin-bottom: 24px;">
+            <div class="pet-icon" style="text-align: center; font-size: 80px; margin-bottom: 20px;">
+                @(Model.Loai == "Chó" ? "🐕" : Model.Loai == "Mèo" ? "🐱" : "🐾")
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 32px;">
+                <h2 style="font-size: 28px; color: #1f2937; margin-bottom: 8px;">@Model.TenThuCung</h2>
+                @if (!string.IsNullOrEmpty(Model.Loai) || !string.IsNullOrEmpty(Model.Giong))
+                {
+                    <p style="font-size: 18px; color: #6b7280;">
+                        @if (!string.IsNullOrEmpty(Model.Loai))
+                        {
+                            @Model.Loai
+                        }
+                        @if (!string.IsNullOrEmpty(Model.Giong))
+                        {
+                            <text> @Model.Giong</text>
+                        }
+                    </p>
+                }
+            </div>
+
+            <!-- 3 thuộc tính chính: Mã, Giống, Cân nặng -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; margin: 0 auto 24px auto;">
+                <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 13px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">Mã thú cưng</div>
+                    <div style="font-size: 16px; color: #1f2937; font-weight: 500;">TC-@Model.MaThuCung</div>
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.Giong))
+                {
+                    <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                        <div style="font-size: 13px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">Giống</div>
+                        <div style="font-size: 16px; color: #1f2937; font-weight: 500;">@Model.Giong</div>
+                    </div>
+                }
+
+                @if (Model.CanNang.HasValue && Model.CanNang > 0)
+                {
+                    <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                        <div style="font-size: 13px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">Cân nặng</div>
+                        <div style="font-size: 16px; color: #1f2937; font-weight: 500;">@Model.CanNang kg</div>
+                    </div>
+                }
+            </div>
+
+            <!-- Các thuộc tính phụ -->
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 900px; margin: 0 auto;">
+                @if (!string.IsNullOrEmpty(Model.Loai))
+                {
+                    <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb;">
+                        <div style="font-size: 13px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">Loại</div>
+                        <div style="font-size: 16px; color: #1f2937; font-weight: 500;">@Model.Loai</div>
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.GioiTinh))
+                {
+                    <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb;">
+                        <div style="font-size: 13px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">Giới tính</div>
+                        <div style="font-size: 16px; color: #1f2937; font-weight: 500;">@Model.GioiTinh</div>
+                    </div>
+                }
+                
+                @if (Model.Tuoi.HasValue && Model.Tuoi > 0)
+                {
+                    <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb;">
+                        <div style="font-size: 13px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">Tuổi</div>
+                        <div style="font-size: 16px; color: #1f2937; font-weight: 500;">@Model.Tuoi tuổi</div>
+                    </div>
+                }
+                
+                @if (Model.NamSinh.HasValue)
+                {
+                    <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb;">
+                        <div style="font-size: 13px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">Năm sinh</div>
+                        <div style="font-size: 16px; color: #1f2937; font-weight: 500;">@Model.NamSinh</div>
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.ChuThich))
+                {
+                    <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb; grid-column: 1 / -1;">
+                        <div style="font-size: 13px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">Ghi chú</div>
+                        <div style="font-size: 16px; color: #1f2937; font-weight: 500;">@Model.ChuThich</div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center;">
+            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+            <a asp-action="Edit" asp-route-id="@Model.MaThuCung" class="btn btn-primary">Chỉnh sửa</a>
+            <a asp-action="Delete" asp-route-id="@Model.MaThuCung" class="btn" style="background: #dc2626; color: white;">Xóa</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

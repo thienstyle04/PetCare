@@ -1,0 +1,105 @@
+@model List<Petcare_web.Models.DTO.LichHenDTO>
+@{
+    ViewData["Title"] = "Thanh toán";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var payments = ViewBag.Payments as List<Petcare_web.Models.DTO.ThanhToanDTO> ?? new List<Petcare_web.Models.DTO.ThanhToanDTO>();
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Thành công!</strong> @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Lỗi!</strong> @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Thanh toán dịch vụ</h3>
+        <a asp-action="History" class="btn btn-primary">Lịch sử thanh toán</a>
+    </div>
+    <div class="card-body">
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-warning">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info">
+                Không có dịch vụ cần thanh toán. Tất cả lịch hẹn của bạn đã được thanh toán hoặc chưa hoàn thành.
+                <a asp-controller="CustomerAppointments" asp-action="Index" class="alert-link">Xem lịch hẹn của tôi</a>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                Bạn có <strong>@Model.Count</strong> dịch vụ đã hoàn thành cần thanh toán.
+            </div>
+
+            <table>
+                    <thead class="table-light">
+                        <tr>
+                            <th>Mã lịch hẹn</th>
+                            <th>Dịch vụ</th>
+                            <th>Thú cưng</th>
+                            <th>Ngày hẹn</th>
+                            <th>Số tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var isPaid = payments.Any(p => p.MaLichHen == item.MaLichHen && p.TrangThai == "DaThanhToan");
+                            <tr>
+                                <td><strong>#@item.MaLichHen</strong></td>
+                                <td>@item.TenDichVu</td>
+                                <td>@item.TenThuCung</td>
+                                <td>@item.NgayGioHen.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>
+                                    <strong class="text-primary">
+                                        @((item.TongTien ?? 0).ToString("N0")) đ
+                                    </strong>
+                                </td>
+                                <td>
+                                    @if (isPaid)
+                                    {
+                                        <span class="badge bg-success">Đã thanh toán</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-warning text-dark">Chưa thanh toán</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (!isPaid)
+                                    {
+                                        <a asp-action="Create" asp-route-maLichHen="@item.MaLichHen" 
+                                           class="btn btn-primary btn-sm">
+                                            Thanh toán
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Đã thanh toán</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+        }
+    </div>
+</div>

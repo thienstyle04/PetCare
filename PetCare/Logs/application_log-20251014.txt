@@ -1,0 +1,58 @@
+2025-10-14 11:04:30.706 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan123512
+2025-10-14 11:04:30.985 +07:00 [INF] Người dùng meanwuan123512 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-14 11:13:55.221 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan123512
+2025-10-14 11:13:55.476 +07:00 [INF] Người dùng meanwuan123512 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-14 11:25:33.808 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan123512
+2025-10-14 11:25:34.054 +07:00 [INF] Người dùng meanwuan123512 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-14 11:28:45.822 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan123512
+2025-10-14 11:28:46.074 +07:00 [INF] Người dùng meanwuan123512 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-14 11:36:33.503 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan123512
+2025-10-14 11:36:33.769 +07:00 [INF] Người dùng meanwuan123512 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-14 11:36:33.919 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 21
+2025-10-14 11:36:33.938 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-14 11:36:33.939 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-14 11:39:46.832 +07:00 [WRN] Attempting to register user: meanwuan12
+2025-10-14 11:39:47.270 +07:00 [INF] User meanwuan12 registered successfully.
+2025-10-14 11:39:59.422 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: meanwuan12
+2025-10-14 11:39:59.558 +07:00 [INF] Người dùng meanwuan12 đã đăng nhập thành công với vai trò: KHACHHANG
+2025-10-14 11:39:59.640 +07:00 [INF] Fetching KhachHang by MaNguoiDung = 22
+2025-10-14 11:39:59.649 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-14 11:39:59.651 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-14 19:51:36.583 +07:00 [FTL] Host terminated unexpectedly
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Program.<Main>$(String[] args) in D:\web2\PetCare\PetCare\Program.cs:line 163
+2025-10-14 19:52:06.924 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 19:52:07.116 +07:00 [WRN] Không tìm thấy thông tin người dùng trong bảng NguoiDung cho IdentityUserId: d0a92889-e458-4cb1-927a-3087c9d5ca7c
+2025-10-14 19:52:18.580 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 19:52:18.662 +07:00 [WRN] Không tìm thấy thông tin người dùng trong bảng NguoiDung cho IdentityUserId: d0a92889-e458-4cb1-927a-3087c9d5ca7c
+2025-10-14 19:57:36.541 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 19:57:36.730 +07:00 [WRN] Không tìm thấy thông tin người dùng trong bảng NguoiDung cho IdentityUserId: d0a92889-e458-4cb1-927a-3087c9d5ca7c
+2025-10-14 19:58:40.489 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 19:58:40.685 +07:00 [WRN] Không tìm thấy thông tin người dùng trong bảng NguoiDung cho IdentityUserId: d0a92889-e458-4cb1-927a-3087c9d5ca7c
+2025-10-14 20:00:29.280 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 20:00:29.470 +07:00 [WRN] Không tìm thấy thông tin người dùng trong bảng NguoiDung cho IdentityUserId: d0a92889-e458-4cb1-927a-3087c9d5ca7c
+2025-10-14 20:07:32.479 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 20:07:32.663 +07:00 [WRN] Không tìm thấy thông tin người dùng trong bảng NguoiDung cho IdentityUserId: d0a92889-e458-4cb1-927a-3087c9d5ca7c
+2025-10-14 20:13:02.807 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 20:13:02.998 +07:00 [WRN] Không tìm thấy thông tin người dùng trong bảng NguoiDung cho IdentityUserId: d0a92889-e458-4cb1-927a-3087c9d5ca7c
+2025-10-14 20:17:29.989 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 20:17:30.186 +07:00 [WRN] Không tìm thấy thông tin người dùng trong bảng NguoiDung cho IdentityUserId: d0a92889-e458-4cb1-927a-3087c9d5ca7c
+2025-10-14 20:19:16.787 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 20:19:16.866 +07:00 [WRN] Không tìm thấy thông tin người dùng trong bảng NguoiDung cho IdentityUserId: d0a92889-e458-4cb1-927a-3087c9d5ca7c
+2025-10-14 20:29:07.930 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 20:29:08.155 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-14 20:33:01.526 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 20:33:01.776 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-14 20:34:15.801 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 20:34:16.045 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-14 20:34:21.711 +07:00 [INF] Fetching all customers with Filter, Sort, Pagination.
+2025-10-14 20:34:21.725 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-14 20:34:21.727 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-14 20:38:47.318 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 20:38:47.387 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-14 20:52:39.619 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 20:52:39.862 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI
+2025-10-14 20:55:51.070 +07:00 [INF] Bắt đầu xử lý yêu cầu đăng nhập cho người dùng: admin@petcare.com
+2025-10-14 20:55:51.320 +07:00 [INF] Người dùng admin@petcare.com đã đăng nhập thành công với vai trò: QUANTRI

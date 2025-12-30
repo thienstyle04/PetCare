@@ -1,0 +1,108 @@
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using PetCare.Data;
+using PetCare.Repositories;
+using Serilog;
+using Serilog.Events;
+
+// KHỞI TẠO SERILOG SỚM (EARLY INITIALIZATION)
+// Mục đích: Bắt được log lỗi xảy ra trong quá trình khởi tạo Host/Builder.
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug() // Mức log thấp nhất được ghi nhận
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning) // Giảm thiểu log hệ thống
+    .Enrich.FromLogContext() // Bổ sung ngữ cảnh (Controller Name, Action Name, v.v.)
+    .WriteTo.Console()
+    .WriteTo.File("Logs/application_log-.txt", rollingInterval: RollingInterval.Day) // Ghi log ra tệp và xoay tệp hàng ngày
+    .CreateLogger();
+
+try
+{
+    var builder = WebApplication.CreateBuilder(args);
+
+    //TÍCH HỢP SERILOG VÀO HOST VÀ CẤU HÌNH SERVICES
+
+    // Tích hợp Serilog vào hệ thống Logging của Builder
+    builder.Logging.ClearProviders(); // Xóa các provider logging mặc định
+    builder.Host.UseSerilog(Log.Logger); // Đăng ký Serilog với cấu hình đã tạo
+    builder.Services.AddControllers();
+
+    // Cấu hình Database Context
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseSqlServer(connectionString));
+
+    // Cấu hình Identity
+    builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+        .AddEntityFrameworkStores<AppDbContext>()
+        .AddDefaultTokenProviders();
+
+    // Đăng ký TẤT CẢ REPOSITORIES (Đảm bảo tất cả services tồn tại)
+    builder.Services.AddScoped<ITokenRepositories, NguoiDungRepositories>();
+    builder.Services.AddScoped<IDichVuRepositories, DichVuRepositories>();
+    builder.Services.AddScoped<IKhachHangRepositories, KhachHangRepositories>();
+    builder.Services.AddScoped<IThuCungRepositories, ThuCungRepositories>();
+    builder.Services.AddScoped<ILichHenRepository, SQLLichHenRepository>();
+    builder.Services.AddScoped<IThanhToanRepository, SQLThanhToanRepository>();
+    builder.Services.AddScoped<IDanhGiaRepository, SQLDanhGiaRepository>();
+    builder.Services.AddScoped<IImageRepository, LocalImageRepository>();
+    builder.Services.AddHttpContextAccessor();
+
+
+    // ... (Các services khác) ...
+
+    builder.Services.AddControllers();
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+
+    // Cấu hình JWT Authentication
+    builder.Services.AddAuthentication(options =>
+    {
+        // ... (Cấu hình Authentication giữ nguyên) ...
+    }).AddJwtBearer("Bearer", options =>
+    {
+        // ... (Cấu hình TokenValidationParameters giữ nguyên) ...
+    });
+
+    // Xây dựng App
+    var app = builder.Build();
+
+    // 3. TẠO ROLE THỦ CÔNG (Chạy một lần khi khởi động)
+    using (var scope = app.Services.CreateScope())
+    {
+        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        string[] roleNames = { "KHACHHANG", "NHANVIEN", "QUANTRI" };
+        foreach (var roleName in roleNames)
+        {
+            var roleExist = await roleManager.RoleExistsAsync(roleName);
+            if (!roleExist)
+            {
+                await roleManager.CreateAsync(new IdentityRole(roleName));
+            }
+        }
+    }
+
+    //CẤU HÌNH MIDDLEWARE VÀ CHẠY APP
+
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    app.UseStaticFiles();
+    app.UseHttpsRedirection();
+    app.UseAuthentication();
+    app.UseAuthorization();
+
+    app.MapControllers();
+
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Host terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}

@@ -1,0 +1,75 @@
+﻿@model List<Petcare_web.Models.DTO.DanhGiaDTO>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Danh sách đánh giá";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@ViewData["Title"]</h3>
+    </div>
+
+    <div class="card-body">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã ĐG</th>
+                    <th>Khách hàng</th>
+                    <th>Lịch hẹn</th>
+                    <th>Đánh giá</th>
+                    <th>Điểm</th>
+                    <th>Ngày tạo</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var review in Model)
+                    {
+                        <tr>
+                            <td>#@review.MaDanhGia</td>
+                            <td>@review.TenKhachHang</td>
+                            <td>#@review.MaLichHen</td>
+                            <td>#@review.BinhLuan</td>
+                            <td>
+                                <span style="color: #f59e0b;">
+                                    @for (int i = 0; i < review.DiemSo; i++)
+                                    {
+                                        <span>⭐</span>
+                                    }
+                                </span>
+                                <small class="text-muted">(@review.DiemSo/5)</small>
+                            </td>
+                            <td>@review.NgayTao.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@review.MaDanhGia" class="btn btn-secondary btn-sm">
+                                    Xem
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@review.MaDanhGia" class="btn btn-danger btn-sm">
+                                    Xóa
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center text-muted">Chưa có đánh giá nào.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,442 @@
+﻿@model IEnumerable<Petcare_web.Models.DTO.DichVuDTO>
+@{
+    ViewData["Title"] = "Trang chủ - PetCare";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        /* Header/Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-register {
+            border: 2px solid rgba(255,255,255,0.5); color: white; background: rgba(255,255,255,0.1)
+            
+        }
+
+        .btn-outline {
+            border: 2px solid #e5e7eb !important;
+            color: #2563eb !important;
+            background: #ffffff !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background: #f9fafb;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #1f2937;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1);
+            border-color: #2563eb;
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .service-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #e5e7eb;
+            margin-top: auto;
+        }
+
+        .service-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .service-duration {
+            font-size: 14px;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .no-services {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6b7280;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #eff6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+        }
+
+        .feature-item h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .feature-item p {
+            color: #6b7280;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: #2563eb;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .btn-white {
+            background: white;
+            color: #2563eb;
+        }
+
+        .btn-white:hover {
+            background: #f3f4f6;
+        }
+
+        /* Responsive */
+        @@media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">PetCare</a>
+            <div class="nav-links">
+                <a href="#services">Dịch vụ</a>
+                <a href="#features">Tính năng</a>
+                <a href="/Account/Login" class="btn btn-outline">Đăng nhập</a>
+                <a href="/Account/Register" class="btn btn-register">Đăng ký</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Chăm sóc thú cưng chuyên nghiệp</h1>
+            <p>Hệ thống quản lý lịch hẹn và dịch vụ chăm sóc thú cưng toàn diện. Đặt lịch nhanh chóng, theo dõi sức khỏe và nhận tư vấn từ các chuyên gia hàng đầu.</p>
+            <div class="hero-buttons">
+                <a href="/Account/Register" class="btn btn-white">Bắt đầu ngay</a>
+                <a href="#services" class="btn" style="border: 2px solid rgba(255,255,255,0.5); color: white; background: rgba(255,255,255,0.1);">Tìm hiểu thêm</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Dịch vụ của chúng tôi</h2>
+            @if (Model != null && Model.Any())
+            {
+                <div class="services-grid">
+                    @foreach (var service in Model)
+                    {
+                        <div class="service-card">
+                            <div class="service-icon">
+                                @switch (service.TenDichVu?.ToLower())
+                                {
+                                    case var s when s.Contains("tắm") || s.Contains("spa"):
+                                        @:🛁
+                                        break;
+                                    case var s when s.Contains("cắt") || s.Contains("tỉa"):
+                                        @:✂️
+                                        break;
+                                    case var s when s.Contains("khám") || s.Contains("sức khỏe"):
+                                        @:🏥
+                                        break;
+                                    case var s when s.Contains("tiêm") || s.Contains("vaccine"):
+                                        @:💉
+                                        break;
+                                    case var s when s.Contains("khách sạn") || s.Contains("lưu trú"):
+                                        @:🏨
+                                        break;
+                                    case var s when s.Contains("huấn luyện") || s.Contains("training"):
+                                        @:🎓
+                                        break;
+                                    default:
+                                        @:🐾
+                                        break;
+                                }
+                            </div>
+                            <h3>@service.TenDichVu</h3>
+                            <p>@(service.MoTa ?? "Dịch vụ chăm sóc thú cưng chuyên nghiệp")</p>
+                            <div class="service-meta">
+                                <span class="service-price">@service.Gia.ToString("N0")đ</span>
+                                @if (service.ThoiGian.HasValue)
+                                {
+                                    <span class="service-duration">
+                                        <i class="bi bi-clock"></i>
+                                        @service.ThoiGian phút
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="no-services">
+                    <p>Hiện chưa có dịch vụ nào. Vui lòng quay lại sau.</p>
+                </div>
+            }
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Tại sao chọn PetCare?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📅</div>
+                    <h4>Đặt lịch dễ dàng</h4>
+                    <p>Đặt lịch hẹn online chỉ trong vài phút, quản lý lịch sử dễ dàng</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍⚕️</div>
+                    <h4>Chuyên gia giàu kinh nghiệm</h4>
+                    <p>Đội ngũ bác sĩ thú y và nhân viên được đào tạo chuyên nghiệp</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h4>Giá cả hợp lý</h4>
+                    <p>Bảng giá minh bạch, nhiều gói ưu đãi cho khách hàng thân thiết</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔔</div>
+                    <h4>Nhắc nhở tự động</h4>
+                    <p>Hệ thống nhắc lịch hẹn, tiêm phòng và chăm sóc định kỳ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Sẵn sàng chăm sóc thú cưng của bạn?</h2>
+            <p>Đăng ký tài khoản ngay hôm nay để trải nghiệm dịch vụ chăm sóc thú cưng chuyên nghiệp nhất</p>
+            <a href="/Account/Register" class="btn btn-white">Đăng ký miễn phí</a>
+        </div>
+    </section>
+</body>
+</html>

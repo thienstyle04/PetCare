@@ -1,0 +1,177 @@
+@model PetCare_web.Models.DTO.NhanVienDTO
+@{
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+    ViewData["Title"] = "Hồ sơ cá nhân";
+}
+
+<style>
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .stat-card {
+        background: white;
+        padding: 24px;
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+    }
+
+    .stat-label {
+        font-size: 14px;
+        color: #6b7280;
+        margin-bottom: 8px;
+    }
+
+    .stat-value {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1f2937;
+    }
+
+    .stat-icon {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        font-size: 60px;
+        opacity: 0.2;
+    }
+
+    .info-box {
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+    }
+
+    .info-box .label {
+        font-size: 13px;
+        color: #6c757d;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+    }
+
+    .info-box .value {
+        font-size: 16px;
+        color: #212529;
+        font-weight: 500;
+    }
+
+    .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .card-header {
+        background: white;
+        border-bottom: 2px solid #f0f0f0;
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .card-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1f2937;
+        margin: 0;
+    }
+
+    .card-body {
+        padding: 24px;
+    }
+</style>
+
+<!-- Xóa class "page-content", chỉ giữ id -->
+<div id="profile">
+    @if (ViewData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+    }
+    else if (Model == null)
+    {
+        <div class="alert alert-warning">Không tìm thấy thông tin nhân viên.</div>
+    }
+    else
+    {
+        <!-- Thông tin cá nhân -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3 class="card-title">Thông tin cá nhân</h3>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.MaNhanVien">Chỉnh sửa</a>
+            </div>
+            <div class="card-body">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div class="info-box">
+                        <div class="label">Họ và tên</div>
+                        <div class="value">@Model.HoTen</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="label">Chức vụ</div>
+                        <div class="value">@Model.ChucVu</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="label">Số điện thoại</div>
+                        <div class="value">@Model.SoDienThoai</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="label">Email</div>
+                        <div class="value">@Model.Email</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="label">Ngày vào làm</div>
+                        <div class="value">
+                            @(Model.NgayVaoLam?.ToString("dd/MM/yyyy") ?? "Chưa cập nhật")
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <div class="label">Trạng thái</div>
+                        <div class="value">
+                            @if (Model.TrangThai)
+                            {
+                                <span class="badge badge-success">Hoạt động</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-secondary">Ngừng</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thống kê công việc -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Thống kê công việc</h3>
+            </div>
+            <div class="card-body">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Lịch hẹn tháng này</div>
+                        <div class="stat-value">@ViewBag.AppointmentsThisMonth</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Hồ sơ đã tạo</div>
+                        <div class="stat-value">@ViewBag.TotalRecords</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Thú cưng đã chăm sóc</div>
+                        <div class="stat-value">@ViewBag.UniquePets</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Lịch hẹn hoàn thành</div>
+                        <div class="stat-value">@ViewBag.CompletedAppointments</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

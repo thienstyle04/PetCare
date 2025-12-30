@@ -1,0 +1,111 @@
+﻿@model List<Petcare_web.Models.DTO.LichHenDTO>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Danh sách lịch hẹn";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@ViewData["Title"]</h3>
+        <a asp-action="Create" class="btn btn-primary">
+            + Tạo lịch hẹn
+        </a>
+    </div>
+
+    <div class="card-body">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã LH</th>
+                    <th>Khách hàng</th>
+                    <th>Thú cưng</th>
+                    <th>Nhân viên</th>
+                    <th>Thời gian</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>#@item.MaLichHen</td>
+                            <td>@item.TenKhachHang</td>
+                            <td>@item.TenThuCung</td>
+                            <td>@item.TenNhanVien</td>
+                            <td>@item.NgayGioHen.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>
+                                @if (item.TrangThai == "Chờ xác nhận")
+                                {
+                                    <span class="badge badge-warning">@item.TrangThai</span>
+                                }
+                                else if (item.TrangThai == "Đã xác nhận")
+                                {
+                                    <span class="badge badge-info">@item.TrangThai</span>
+                                }
+                                else if (item.TrangThai == "Hoàn thành")
+                                {
+                                    <span class="badge badge-success">@item.TrangThai</span>
+                                }
+                                else if (item.TrangThai == "Đã hủy")
+                                {
+                                    <span class="badge badge-danger">@item.TrangThai</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-secondary">@item.TrangThai</span>
+                                }
+                            </td>
+                            <td>
+                                @if (item.TrangThai == "Chờ xác nhận")
+                                {
+                                    <form asp-action="UpdateStatus" method="post" style="display:inline;">
+                                        <input type="hidden" name="id" value="@item.MaLichHen" />
+                                        <input type="hidden" name="status" value="Đã xác nhận" />
+                                        <button type="submit" class="btn btn-success btn-sm">
+                                            Xác nhận
+                                        </button>
+                                    </form>
+                                }
+                                @if (item.TrangThai == "Đã xác nhận")
+                                {
+                                    <form asp-action="UpdateStatus" method="post" style="display:inline;">
+                                        <input type="hidden" name="id" value="@item.MaLichHen" />
+                                        <input type="hidden" name="status" value="Hoàn thành" />
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            Hoàn thành
+                                        </button>
+                                    </form>
+                                }
+                                <a asp-action="Edit" asp-route-id="@item.MaLichHen" class="btn btn-secondary btn-sm">
+                                    Sửa
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.MaLichHen" class="btn btn-danger btn-sm">
+                                    Xóa
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-center text-muted">Chưa có lịch hẹn nào.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

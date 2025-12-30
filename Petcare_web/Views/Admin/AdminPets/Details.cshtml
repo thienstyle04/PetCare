@@ -1,0 +1,177 @@
+@model Petcare_web.Models.DTO.ThuCungDTO
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chi tiết thú cưng";
+}
+
+<style>
+    .pet-details-card {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin-bottom: 20px;
+    }
+
+    .pet-details-card .card-header {
+        background-color: #f8f9fa;
+        border-bottom: 2px solid #dee2e6;
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .pet-details-card .card-header h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #212529;
+    }
+
+    .pet-details-card .card-body {
+        padding: 24px;
+    }
+
+    .details-section {
+        background: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .details-section table {
+        margin-bottom: 0;
+    }
+
+    .details-section th {
+        background-color: #f8f9fa;
+        color: #495057;
+        font-weight: 600;
+        padding: 15px 20px;
+        width: 35%;
+        border-right: 2px solid #e9ecef;
+        vertical-align: middle;
+    }
+
+    .details-section td {
+        padding: 15px 20px;
+        color: #212529;
+        vertical-align: middle;
+    }
+
+    .details-section tr {
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .details-section tr:last-child {
+        border-bottom: none;
+    }
+
+    .info-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        background-color: #e7f3ff;
+        color: #0066cc;
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+
+    .action-buttons {
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 2px solid #e9ecef;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .action-buttons .btn {
+        padding: 10px 24px;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 5px;
+        transition: all 0.2s ease;
+    }
+
+    .action-buttons .btn i {
+        font-size: 1rem;
+    }
+
+    .action-buttons .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    }
+</style>
+
+<div class="card pet-details-card">
+    <div class="card-header">
+        <h3>@ViewData["Title"]: @Model.TenThuCung</h3>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Quay lại
+        </a>
+    </div>
+    <div class="card-body">
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                <i class="bi bi-exclamation-triangle-fill"></i> @TempData["ErrorMessage"]
+            </div>
+        }
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">
+                <i class="bi bi-check-circle-fill"></i> @TempData["SuccessMessage"]
+            </div>
+        }
+
+        <div class="details-section">
+            <table class="table mb-0">
+                <tbody>
+                    <tr>
+                        <th><i class="bi bi-hash"></i> Mã thú cưng</th>
+                        <td><span class="info-badge">@Model.MaThuCung</span></td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-person"></i> Mã khách hàng</th>
+                        <td><span class="info-badge">@Model.MaKhachHang</span></td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-tag"></i> Tên thú cưng</th>
+                        <td><strong>@Model.TenThuCung</strong></td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-award"></i> Giống</th>
+                        <td>@(string.IsNullOrEmpty(Model.Giong) ? "Đức" : Model.Giong)</td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-calendar"></i> Tuổi</th>
+                        <td>@(Model.Tuoi.HasValue ? Model.Tuoi.Value + " tuổi" : "N/A")</td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-speedometer2"></i> Cân nặng</th>
+                        <td>@(Model.CanNang.HasValue ? Model.CanNang.Value + " kg" : "N/A")</td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-chat-left-text"></i> Chú thích</th>
+                        <td>@(string.IsNullOrEmpty(Model.ChuThich) ? "Không có" : Model.ChuThich)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="action-buttons">
+            <a asp-action="Edit" asp-route-id="@Model.MaThuCung" class="btn btn-primary">
+                <i class="bi bi-pencil"></i> Chỉnh sửa
+            </a>
+            <a asp-action="Delete" asp-route-id="@Model.MaThuCung" class="btn btn-danger">
+                <i class="bi bi-trash"></i> Xóa
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-list-ul"></i> Quay lại danh sách
+            </a>
+        </div>
+    </div>
+</div>

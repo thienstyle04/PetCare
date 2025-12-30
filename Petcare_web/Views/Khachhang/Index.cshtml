@@ -1,0 +1,281 @@
+@model Petcare_web.Controllers.KhachHangDashboardViewModel
+@{
+    ViewData["Title"] = "Tổng quan";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Xin chào, @Model.KhachHang.HoTen</h1>
+    <p>Chào mừng bạn đến với hệ thống quản lý chăm sóc thú cưng PetCare</p>
+</div>
+
+<!-- Statistics -->
+<div class="grid" style="margin-bottom: 30px;">
+    <div class="stats-card">
+        <h4>Số thú cưng</h4>
+        <div class="stats-value">@Model.ThuCungs.Count</div>
+    </div>
+
+    <div class="stats-card">
+        <h4>Lịch hẹn sắp tới</h4>
+        <div class="stats-value">@Model.LichHens.Count(l => l.NgayGioHen >= DateTime.Now)</div>
+    </div>
+</div>
+
+<!-- My Pets -->
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Thú cưng của tôi</h3>
+        <a asp-controller="CustomerPets" asp-action="Index" class="btn btn-primary btn-sm">Xem tất cả</a>
+    </div>
+    <div class="card-body">
+        @if (!Model.ThuCungs.Any())
+        {
+            <div class="alert alert-info">
+                Bạn chưa có thú cưng nào. <a asp-controller="CustomerPets" asp-action="Add">Thêm ngay!</a>
+            </div>
+        }
+        else
+        {
+            <div class="grid">
+                @foreach (var pet in Model.ThuCungs.Take(3))
+                {
+                    <div class="grid-item">
+                        <div class="pet-icon">@(pet.Loai == "Chó" ? "" : pet.Loai == "Mèo" ? "" : "")</div>
+                        <h3>@pet.TenThuCung</h3>
+                        
+                        @if (!string.IsNullOrEmpty(pet.Loai))
+                        {
+                            <p style="font-size: 13px; color: #6b7280; margin: 4px 0;">
+                                <strong>Loại:</strong> @pet.Loai
+                                @if (!string.IsNullOrEmpty(pet.Giong))
+                                {
+                                    <br /><strong>Giống:</strong> @pet.Giong
+                                }
+                            </p>
+                        }
+                        
+                        @if (pet.Tuoi.HasValue && pet.Tuoi > 0)
+                        {
+                            <p style="font-size: 13px; color: #6b7280; margin: 4px 0;">
+                                <strong>Tuổi:</strong> @pet.Tuoi
+                            </p>
+                        }
+                        else if (pet.NamSinh.HasValue)
+                        {
+                            <p style="font-size: 13px; color: #6b7280; margin: 4px 0;">
+                                <strong>Năm sinh:</strong> @pet.NamSinh
+                            </p>
+                        }
+                        
+                        <a asp-controller="CustomerPets" asp-action="Detail" asp-route-id="@pet.MaThuCung" 
+                           class="btn btn-secondary btn-sm btn-full"
+                           style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); 
+                                  color: white; 
+                                  border: none; 
+                                  padding: 10px 20px; 
+                                  font-weight: 600;
+                                  transition: all 0.3s ease;
+                                  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);"
+                           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(37, 99, 235, 0.3)';"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(37, 99, 235, 0.2)';">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                }
+                @if (Model.ThuCungs.Count < 3)
+                {
+                    <a asp-controller="CustomerPets" asp-action="Add" class="grid-item add-new" style="text-decoration: none;">
+                        <div class="pet-icon" style="font-size: 48px; color: #000;">+</div>
+                        <h3>Thêm thú cưng</h3>
+                    </a>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Available Services -->
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Dịch vụ hiện có</h3>
+        @if (Model.ThuCungs.Any())
+        {
+            <a asp-controller="CustomerAppointments" asp-action="Add" class="btn btn-primary btn-sm">Đặt lịch ngay</a>
+        }
+    </div>
+    <div class="card-body">
+        @if (!Model.DichVus.Any())
+        {
+            <div class="alert alert-info">
+                Hiện tại chưa có dịch vụ nào.
+            </div>
+        }
+        else
+        {
+            <div class="services-grid">
+                @foreach (var service in Model.DichVus)
+                {
+                    <div class="service-card">
+                        <h4 class="service-name">@service.TenDichVu</h4>
+                        @if (!string.IsNullOrEmpty(service.MoTa))
+                        {
+                            <p class="service-description">@(service.MoTa.Length > 80 ? service.MoTa.Substring(0, 80) + "..." : service.MoTa)</p>
+                        }
+                        <div class="service-info">
+                            <div class="service-price">
+                                <strong>@service.Gia.ToString("N0") VNĐ</strong>
+                            </div>
+                            @if (service.ThoiGian.HasValue && service.ThoiGian.Value > 0)
+                            {
+                                <div class="service-time">
+                                    @service.ThoiGian.Value phút
+                                </div>
+                            }
+                        </div>
+                        @if (Model.ThuCungs.Any())
+                        {
+                            <a asp-controller="CustomerAppointments" asp-action="Add" asp-route-serviceId="@service.MaDichVu" class="btn btn-primary btn-sm btn-full" style="margin-top: 10px;">
+                                Đặt lịch
+                            </a>
+                        }
+                        else
+                        {
+                            <p class="text-muted text-center" style="font-size: 12px; margin-top: 10px;">
+                                Vui lòng thêm thú cưng trước
+                            </p>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Recent Appointments -->
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Lịch hẹn gần đây</h3>
+        <a asp-controller="CustomerAppointments" asp-action="Index" class="btn btn-primary btn-sm">Xem tất cả</a>
+    </div>
+    <div class="card-body">
+        @if (!Model.LichHens.Any())
+        {
+            <div class="alert alert-info">
+                Bạn chưa có lịch hẹn nào. <a asp-controller="CustomerAppointments" asp-action="Add">Đặt lịch ngay!</a>
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Mã</th>
+                        <th>Ngày giờ</th>
+                        <th>Dịch vụ</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var appointment in Model.LichHens.OrderByDescending(l => l.NgayGioHen).Take(5))
+                    {
+                        <tr>
+                            <td><strong>#LH@(appointment.MaLichHen)</strong></td>
+                            <td>@appointment.NgayGioHen.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@appointment.TenDichVu</td>
+                            <td>
+                                @if (appointment.TrangThai == "Đã xác nhận")
+                                {
+                                    <span class="badge badge-info">@appointment.TrangThai</span>
+                                }
+                                else if (appointment.TrangThai == "Hoàn thành")
+                                {
+                                    <span class="badge badge-success">@appointment.TrangThai</span>
+                                }
+                                else if (appointment.TrangThai == "Đã hủy")
+                                {
+                                    <span class="badge badge-danger">@appointment.TrangThai</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-warning">@appointment.TrangThai</span>
+                                }
+                            </td>
+                            <td>
+                                <a asp-controller="CustomerAppointments" asp-action="Detail" asp-route-id="@appointment.MaLichHen" class="btn btn-secondary btn-sm">Chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+<style>
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 15px;
+    }
+    
+    .service-card {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
+        border-color: #2563eb;
+    }
+    
+    .service-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1f2937;
+        margin: 10px 0;
+        min-height: 40px;
+    }
+    
+    .service-description {
+        font-size: 13px;
+        color: #6b7280;
+        line-height: 1.5;
+        margin: 10px 0;
+        min-height: 60px;
+    }
+    
+    .service-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #e5e7eb;
+    }
+    
+    .service-price {
+        color: #2563eb;
+        font-size: 18px;
+    }
+    
+    .service-time {
+        font-size: 13px;
+        color: #6b7280;
+    }
+    
+    .btn-full {
+        width: 100%;
+    }
+</style>
+
+

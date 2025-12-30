@@ -1,0 +1,162 @@
+@model List<Petcare_web.Models.DTO.ThanhToanDTO>
+@{
+    ViewData["Title"] = "Lịch sử thanh toán";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Lịch sử thanh toán</h3>
+        <a asp-action="Index" class="btn btn-primary">Quay lại</a>
+    </div>
+    <div class="card-body">
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-warning">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info">
+                Chưa có lịch sử thanh toán. Bạn chưa thực hiện thanh toán nào.
+                <a asp-action="Index" class="alert-link">Xem dịch vụ cần thanh toán</a>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info mb-3">
+                Tổng cộng: <strong>@Model.Count</strong> giao dịch
+            </div>
+
+            <table class="table table-striped table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Mã thanh toán</th>
+                            <th>Mã lịch hẹn</th>
+                            <th>Số tiền</th>
+                            <th>Phương thức</th>
+                            <th>Ngày thanh toán</th>
+                            <th>Trạng thái</th>
+                            <th>Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var payment in Model)
+                        {
+                            <tr>
+                                <td><strong>#TT@(payment.MaThanhToan)</strong></td>
+                                <td>
+                                    <a asp-controller="CustomerAppointments" 
+                                       asp-action="Detail" 
+                                       asp-route-id="@payment.MaLichHen"
+                                       class="text-primary">
+                                        #LH@(payment.MaLichHen)
+                                    </a>
+                                </td>
+                                <td>
+                                    <strong class="text-success">
+                                        @(payment.SoTien.ToString("N0")) đ
+                                    </strong>
+                                </td>
+                                <td>
+                                    @switch (payment.PhuongThuc)
+                                    {
+                                        case "TienMat":
+                                            <span class="badge bg-success">
+                                                <i class="bi bi-cash-coin"></i> Tiền mặt
+                                            </span>
+                                            break;
+                                        case "ChuyenKhoan":
+                                            <span class="badge bg-primary">
+                                                <i class="bi bi-bank"></i> Chuyển khoản
+                                            </span>
+                                            break;
+                                        case "VNPay":
+                                            <span class="badge bg-danger">
+                                                <i class="bi bi-credit-card-2-front"></i> VNPay
+                                            </span>
+                                            break;
+                                        case "TheNganHang":
+                                            <span class="badge bg-warning text-dark">
+                                                <i class="bi bi-credit-card"></i> Thẻ ngân hàng
+                                            </span>
+                                            break;
+                                        default:
+                                            <span class="badge bg-secondary">@payment.PhuongThuc</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>
+                                    @if (payment.NgayThanhToan.HasValue)
+                                    {
+                                        <span>@payment.NgayThanhToan.Value.ToString("dd/MM/yyyy HH:mm")</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa có</span>
+                                    }
+                                </td>
+                                <td>
+                                    @switch (payment.TrangThai)
+                                    {
+                                        case "DaThanhToan":
+                                            <span class="badge bg-success">
+                                                <i class="bi bi-check-circle"></i> Đã thanh toán
+                                            </span>
+                                            break;
+                                        case "ChoThanhToan":
+                                            <span class="badge bg-warning text-dark">
+                                                <i class="bi bi-clock"></i> Chờ thanh toán
+                                            </span>
+                                            break;
+                                        case "ThatBai":
+                                            <span class="badge bg-danger">
+                                                <i class="bi bi-x-circle"></i> Thất bại
+                                            </span>
+                                            break;
+                                        case "HoanTien":
+                                            <span class="badge bg-info">
+                                                <i class="bi bi-arrow-counterclockwise"></i> Hoàn tiền
+                                            </span>
+                                            break;
+                                        default:
+                                            <span class="badge bg-secondary">@payment.TrangThai</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(payment.GhiChu))
+                                    {
+                                        <span class="text-muted" title="@payment.GhiChu">
+                                            @(payment.GhiChu.Length > 30 ? payment.GhiChu.Substring(0, 30) + "..." : payment.GhiChu)
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">-</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot class="table-light">
+                        <tr>
+                            <td colspan="2" class="text-end"><strong>Tổng cộng:</strong></td>
+                            <td colspan="5">
+                                <strong class="text-success fs-5">
+                                    @(Model.Where(p => p.TrangThai == "DaThanhToan").Sum(p => p.SoTien).ToString("N0")) đ
+                                </strong>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class="alert alert-info mt-3">
+                    <i class="bi bi-star"></i> <strong>Đã thanh toán xong?</strong> 
+                    Hãy <a asp-controller="CustomerReviews" asp-action="Index" class="alert-link">đánh giá dịch vụ</a> để giúp chúng tôi cải thiện chất lượng!
+                </div>
+        }
+    </div>
+</div>

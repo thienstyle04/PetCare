@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Petcare_web.Models.DTO.ThuCungDTO>
+@{
+    ViewData["Title"] = "Thú cưng của tôi";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Thú cưng của tôi</h3>
+        <a asp-action="Add" class="btn btn-primary">+ Thêm thú cưng mới</a>
+    </div>
+    <div class="card-body">
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert" style="background: #fee2e2; border: 1px solid #fecaca; color: #991b1b; margin-bottom: 16px; padding: 12px; border-radius: 8px;">
+                ❌ @TempData["ErrorMessage"]
+            </div>
+        }
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert" style="background: #d1fae5; border: 1px solid #a7f3d0; color: #065f46; margin-bottom: 16px; padding: 12px; border-radius: 8px;">
+                ✅ @TempData["SuccessMessage"]
+            </div>
+        }
+        @if (Model == null || !Model.Any())
+        {
+            <div class="alert alert-info">
+                Bạn chưa có thú cưng nào. Hãy thêm ngay!
+            </div>
+        }
+        else
+        {
+            <div class="grid">
+                @foreach (var pet in Model)
+                {
+                    <div class="grid-item">
+                        <div class="pet-icon">@(pet.Loai == "Chó" ? "🐕" : pet.Loai == "Mèo" ? "🐱" : "🐾")</div>
+                        <h3>@pet.TenThuCung</h3>
+                        
+                        @if (!string.IsNullOrEmpty(pet.Loai))
+                        {
+                            <p style="font-size: 13px; color: #6b7280; margin: 4px 0;">
+                                <strong>Loại:</strong> @pet.Loai
+                                @if (!string.IsNullOrEmpty(pet.Giong))
+                                {
+                                    <text> • <strong>Giống:</strong> @pet.Giong</text>
+                                }
+                            </p>
+                        }
+                        
+                        @if (!string.IsNullOrEmpty(pet.GioiTinh) || (pet.Tuoi.HasValue && pet.Tuoi > 0) || pet.NamSinh.HasValue)
+                        {
+                            <p style="font-size: 13px; color: #6b7280; margin: 4px 0;">
+                                @if (!string.IsNullOrEmpty(pet.GioiTinh))
+                                {
+                                    <strong>Giới tính:</strong> @pet.GioiTinh
+                                }
+                                @if (pet.Tuoi.HasValue && pet.Tuoi > 0)
+                                {
+                                    <text> • <strong>Tuổi:</strong> @pet.Tuoi</text>
+                                }
+                                else if (pet.NamSinh.HasValue)
+                                {
+                                    <text> • <strong>Năm sinh:</strong> @pet.NamSinh</text>
+                                }
+                            </p>
+                        }
+                        
+                        @if (pet.CanNang.HasValue && pet.CanNang > 0)
+                        {
+                            <p style="font-size: 13px; color: #6b7280; margin: 4px 0;">
+                                <strong>Cân nặng:</strong> @pet.CanNang kg
+                            </p>
+                        }
+                        
+                        <div style="margin-top: 16px; display: flex; gap: 8px;">
+                            <a asp-action="Detail" asp-route-id="@pet.MaThuCung" class="btn btn-primary btn-sm" style="flex: 1;">Xem</a>
+                            <a asp-action="Edit" asp-route-id="@pet.MaThuCung" class="btn btn-secondary btn-sm" style="flex: 1;">Sửa</a>
+                            <a asp-action="Delete" asp-route-id="@pet.MaThuCung" class="btn btn-secondary btn-sm" style="flex: 1;">Xóa</a>
+                        </div>
+                    </div>
+                }
+                
+                <a asp-action="Add" class="grid-item add-new" style="text-decoration: none;">
+                    <div class="pet-icon">➕</div>
+                    <h3>Thêm thú cưng</h3>
+                </a>
+            </div>
+        }
+    </div>
+</div>

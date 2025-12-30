@@ -1,0 +1,76 @@
+﻿@model List<Petcare_web.Models.DTO.KhachHangDTO>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Danh sách khách hàng";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@ViewData["Title"]</h3>
+        <a asp-action="Create" class="btn btn-primary">
+            + Thêm khách hàng
+        </a>
+    </div>
+
+    <div class="card-body">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã KH</th>
+                    <th>Họ tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
+                    <th>Ngày sinh</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var customer in Model)
+                    {
+                        <tr>
+                            <td>#@customer.MaKhachHang</td>
+                            <td>@customer.HoTen</td>
+                            <td>@customer.SoDienThoai</td>
+                            <td>@customer.DiaChi</td>
+                            <td>@(customer.NgaySinh?.ToString("dd/MM/yyyy") ?? "-")</td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@customer.MaKhachHang"
+                                   class="btn btn-info btn-sm">
+                                    <i class="bi bi-eye"></i> Chi tiết
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@customer.MaKhachHang"
+                                   class="btn btn-secondary btn-sm">
+                                    <i class="bi bi-pencil"></i> Sửa
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@customer.MaKhachHang"
+                                   class="btn btn-danger btn-sm"
+                                   onclick="return confirm('Bạn có chắc chắn muốn xóa khách hàng này?')">
+                                    <i class="bi bi-trash"></i> Xóa
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center text-muted">Chưa có khách hàng nào.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

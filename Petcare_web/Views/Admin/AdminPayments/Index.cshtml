@@ -1,0 +1,67 @@
+﻿@model List<Petcare_web.Models.DTO.ThanhToanDTO>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Danh sách thanh toán";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@ViewData["Title"]</h3>
+        <a asp-action="Create" class="btn btn-primary">
+            + Tạo thanh toán
+        </a>
+    </div>
+
+    <div class="card-body">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã TT</th>
+                    <th>Mã Lịch hẹn</th>
+                    <th>Số tiền (VNĐ)</th>
+                    <th>Phương thức</th>
+                    <th>Ngày thanh toán</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>#@item.MaThanhToan</td>
+                            <td>#@item.MaLichHen</td>
+                            <td>@item.SoTien.ToString("N0")</td>
+                            <td>@item.PhuongThuc</td>
+                            <td>@(item.NgayThanhToan?.ToString("dd/MM/yyyy HH:mm") ?? "-")</td>
+                            <td><span class="badge badge-success">@item.TrangThai</span></td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.MaThanhToan" class="btn btn-secondary btn-sm">
+                                    Cập nhật
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-center text-muted">Chưa có thanh toán nào.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

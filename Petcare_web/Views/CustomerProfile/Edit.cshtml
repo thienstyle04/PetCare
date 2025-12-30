@@ -1,0 +1,78 @@
+@model Petcare_web.Models.DTO.KhachHangDTO
+@{
+    ViewData["Title"] = "Chỉnh sửa hồ sơ";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title mb-0">Chỉnh sửa hồ sơ cá nhân</h3>
+        </div>
+        <div class="card-body p-4">
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="MaKhachHang" />
+            <input type="hidden" asp-for="MaNguoiDung" />
+            <input type="hidden" asp-for="TenDangNhap" />
+            <input type="hidden" asp-for="Email" />
+            <input type="hidden" asp-for="NgayTao" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="HoTen" class="form-label">Họ và tên <span class="text-danger">*</span></label>
+                        <input asp-for="HoTen" class="form-control" placeholder="Nhập họ và tên" />
+                        <span asp-validation-for="HoTen" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="SoDienThoai" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+                        <input asp-for="SoDienThoai" class="form-control" placeholder="Nhập số điện thoại" />
+                        <span asp-validation-for="SoDienThoai" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="NgaySinh" class="form-label">Ngày sinh</label>
+                        <input asp-for="NgaySinh" type="date" class="form-control" />
+                        <span asp-validation-for="NgaySinh" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="DiaChi" class="form-label">Địa chỉ</label>
+                        <textarea asp-for="DiaChi" class="form-control" rows="3" placeholder="Nhập địa chỉ"></textarea>
+                        <span asp-validation-for="DiaChi" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tên đăng nhập</label>
+                        <input type="text" class="form-control" value="@Model.TenDangNhap" disabled />
+                        <small class="form-text text-muted">Không thể thay đổi tên đăng nhập</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" value="@Model.Email" disabled />
+                        <small class="form-text text-muted">Liên hệ quản trị viên để thay đổi email</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Lưu ý:</strong> Các trường có dấu <span class="text-danger">*</span> là bắt buộc.
+            </div>
+
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

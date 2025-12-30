@@ -1,0 +1,72 @@
+﻿@model Petcare_web.Models.DTO.RegisterKhachHangDTO
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Thêm mới khách hàng";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@ViewData["Title"]</h3>
+        <a asp-action="Index" class="btn btn-secondary btn-sm">← Quay lại</a>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-action="Create">
+
+            @if (ViewData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+            }
+
+            <h5 style="margin-bottom: 20px; color: #1f2937; font-weight: 600;">Thông tin tài khoản</h5>
+            
+            <div class="form-group">
+                <label asp-for="TenDangNhap" class="form-label"></label>
+                <input asp-for="TenDangNhap" class="form-input" />
+                <span asp-validation-for="TenDangNhap" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-input" type="email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MatKhau" class="form-label"></label>
+                <input asp-for="MatKhau" type="password" class="form-input" />
+                <span asp-validation-for="MatKhau" class="text-danger"></span>
+            </div>
+
+            <h5 style="margin: 30px 0 20px; color: #1f2937; font-weight: 600;">Thông tin khách hàng</h5>
+            
+            <div class="form-group">
+                <label asp-for="HoTen" class="form-label"></label>
+                <input asp-for="HoTen" class="form-input" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SoDienThoai" class="form-label"></label>
+                <input asp-for="SoDienThoai" class="form-input" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DiaChi" class="form-label"></label>
+                <input asp-for="DiaChi" class="form-input" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NgaySinh" class="form-label"></label>
+                <input asp-for="NgaySinh" type="date" class="form-input" />
+            </div>
+
+            <div class="form-group" style="margin-top: 30px; display: flex; gap: 12px;">
+                <button type="submit" class="btn btn-primary">Lưu</button>
+                <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

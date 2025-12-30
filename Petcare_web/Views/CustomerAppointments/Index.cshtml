@@ -1,0 +1,141 @@
+﻿@model IEnumerable<Petcare_web.Models.DTO.LichHenDTO>
+@{
+    ViewData["Title"] = "Lịch hẹn của tôi";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Lịch hẹn của tôi</h3>
+        <a asp-action="Add" class="btn btn-primary">+ Đặt lịch mới</a>
+    </div>
+    <div class="card-body">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                @TempData["ErrorMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        @if (Model == null || !Model.Any())
+        {
+            <div class="alert alert-info">
+                Bạn chưa có lịch hẹn nào. Hãy đặt lịch ngay!
+            </div>
+        }
+        else
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã</th>
+                        <th>Ngày giờ</th>
+                        <th>Thú cưng</th>
+                        <th>Dịch vụ</th>
+                        <th>Nhân viên</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderByDescending(l => l.NgayGioHen))
+                    {
+                        <tr>
+                            <td>@($"#LH{item.MaLichHen}")</td>
+                            <td>@item.NgayGioHen.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@item.TenThuCung</td>
+                            <td>@item.TenDichVu</td>
+                            <td>@(item.TenNhanVien ?? "Chưa phân công")</td>
+                            <td>
+                                @if (item.TrangThai == "Đã xác nhận")
+                                {
+                                    <span class="badge badge-info">@item.TrangThai</span>
+                                }
+                                else if (item.TrangThai == "Hoàn thành")
+                                {
+                                    <span class="badge badge-success">@item.TrangThai</span>
+                                }
+                                else if (item.TrangThai == "Đã hủy")
+                                {
+                                    <span class="badge badge-danger">@item.TrangThai</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-warning">@item.TrangThai</span>
+                                }
+                            </td>
+                            <td>
+                                <a asp-action="Detail" asp-route-id="@item.MaLichHen" class="btn btn-info btn-sm">
+                                    Chi tiết
+                                </a>
+                                @if (item.TrangThai == "Chờ xác nhận" || item.TrangThai == "Đã xác nhận")
+                                {
+                                    <form asp-action="Cancel" asp-route-id="@item.MaLichHen" method="post" style="display:inline; margin-left: 5px;" 
+                                          onsubmit="return confirm('Bạn có chắc chắn muốn hủy lịch hẹn này?');">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-sm" style="background-color: #dc2626; color: white; border: none; padding: 6px 12px; font-size: 14px; font-weight: 500; border-radius: 4px; cursor: pointer;">
+                                            Hủy lịch
+                                        </button>
+                                    </form>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+<!-- Payment History -->
+@if (Model != null && Model.Any(l => l.TrangThai == "Hoàn thành"))
+{
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Lịch sử thanh toán</h3>
+        </div>
+        <div class="card-body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã</th>
+                        <th>Ngày</th>
+                        <th>Dịch vụ</th>
+                        <th>Số tiền</th>
+                        <th>Phương thức</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Where(l => l.TrangThai == "Hoàn thành").OrderByDescending(l => l.NgayGioHen).Take(10))
+                    {
+                        <tr>
+                            <td><strong>#LH@(item.MaLichHen)</strong></td>
+                            <td>@item.NgayGioHen.ToString("dd/MM/yyyy")</td>
+                            <td>@item.TenDichVu</td>
+                            <td>
+                                @if (item.TongTien.HasValue)
+                                {
+                                    @item.TongTien.Value.ToString("N0") <text>đ</text>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Chưa cập nhật</span>
+                                }
+                            </td>
+                            <td>Tiền mặt</td>
+                            <td><span class="badge badge-success">Đã thanh toán</span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

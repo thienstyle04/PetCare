@@ -1,0 +1,585 @@
+@model Petcare_web.Models.DTO.ThanhToanRequestDTO
+@{
+    ViewData["Title"] = "Thanh toán dịch vụ";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var appointment = ViewBag.Appointment as Petcare_web.Models.DTO.LichHenDTO;
+}
+
+<div class="container-fluid">
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill"></i> <strong>Lỗi!</strong> @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h3 class="card-title mb-0">
+                <i class="bi bi-credit-card"></i> Thanh toán dịch vụ
+            </h3>
+        </div>
+        <div class="card-body p-4">
+                @if (appointment != null)
+                {
+                    <!-- Thông tin lịch hẹn -->
+                    <div class="appointment-info-card mb-4">
+                        <div class="info-header">
+                            <i class="bi bi-calendar-check"></i>
+                            <h5>Thông tin lịch hẹn</h5>
+                        </div>
+                        <div class="info-body">
+                            <div class="info-item">
+                                <span class="info-label">Mã lịch hẹn:</span>
+                                <span class="info-value">#@appointment.MaLichHen</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Dịch vụ:</span>
+                                <span class="info-value">@appointment.TenDichVu</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Thú cưng:</span>
+                                <span class="info-value">@appointment.TenThuCung</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Ngày hẹn:</span>
+                                <span class="info-value">@appointment.NgayGioHen.ToString("dd/MM/yyyy HH:mm")</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Nhân viên:</span>
+                                <span class="info-value">@(appointment.TenNhanVien ?? "Chưa phân công")</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Tổng tiền:</span>
+                                <span class="info-value text-primary">
+                                    @((appointment.TongTien ?? 0).ToString("N0")) đ
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form thanh toán -->
+                    <form asp-action="Create" method="post" id="paymentForm">
+                        @Html.AntiForgeryToken()
+
+                        <input type="hidden" asp-for="MaLichHen" value="@appointment.MaLichHen" />
+                        <input type="hidden" asp-for="SoTien" value="@appointment.TongTien" />
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold fs-5 mb-3">
+                                <i class="bi bi-wallet2"></i> Chọn phương thức thanh toán
+                            </label>
+                            <div class="payment-methods">
+                                <label class="payment-option">
+                                    <input class="form-check-input" type="radio" name="PhuongThuc" 
+                                           value="TienMat" checked>
+                                    <div class="payment-content">
+                                        <div class="payment-icon bg-success">
+                                            <i class="bi bi-cash-coin"></i>
+                                        </div>
+                                        <div class="payment-details">
+                                            <div class="payment-title">Tiền mặt</div>
+                                            <div class="payment-desc">Thanh toán trực tiếp tại cửa hàng</div>
+                                        </div>
+                                        <div class="payment-check">
+                                            <i class="bi bi-check-circle-fill"></i>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="payment-option">
+                                    <input class="form-check-input" type="radio" name="PhuongThuc" 
+                                           value="ChuyenKhoan">
+                                    <div class="payment-content">
+                                        <div class="payment-icon bg-primary">
+                                            <i class="bi bi-bank"></i>
+                                        </div>
+                                        <div class="payment-details">
+                                            <div class="payment-title">Chuyển khoản ngân hàng</div>
+                                            <div class="payment-desc">Chuyển khoản qua số tài khoản</div>
+                                        </div>
+                                        <div class="payment-check">
+                                            <i class="bi bi-check-circle-fill"></i>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="payment-option">
+                                    <input class="form-check-input" type="radio" name="PhuongThuc" 
+                                           value="VNPay">
+                                    <div class="payment-content">
+                                        <div class="payment-icon bg-danger">
+                                            <i class="bi bi-credit-card-2-front"></i>
+                                        </div>
+                                        <div class="payment-details">
+                                            <div class="payment-title">VNPay</div>
+                                            <div class="payment-desc">Thanh toán qua ví điện tử VNPay</div>
+                                        </div>
+                                        <div class="payment-check">
+                                            <i class="bi bi-check-circle-fill"></i>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="payment-option">
+                                    <input class="form-check-input" type="radio" name="PhuongThuc" 
+                                           value="TheNganHang">
+                                    <div class="payment-content">
+                                        <div class="payment-icon bg-warning">
+                                            <i class="bi bi-credit-card"></i>
+                                        </div>
+                                        <div class="payment-details">
+                                            <div class="payment-title">Thẻ ngân hàng</div>
+                                            <div class="payment-desc">Thanh toán bằng thẻ ATM/Visa/Master</div>
+                                        </div>
+                                        <div class="payment-check">
+                                            <i class="bi bi-check-circle-fill"></i>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label"><strong>Ghi chú (không bắt buộc)</strong></label>
+                            <textarea asp-for="GhiChu" class="form-control" rows="3" 
+                                      placeholder="Nhập ghi chú nếu có..."></textarea>
+                        </div>
+
+                        <!-- Đã loại bỏ thông tin chuyển khoản ngân hàng theo yêu cầu -->
+
+                        <div class="d-flex gap-2 mt-4 pt-3 border-top">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left"></i> Quay lại
+                            </a>
+                            <button type="button" class="btn btn-primary flex-grow-1" id="submitBtn">
+                                <i class="bi bi-check-circle"></i> Xác nhận thanh toán
+                            </button>
+                        </div>
+                    </form>
+                }
+                else
+                {
+                    <div class="alert alert-danger">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        Không tìm thấy thông tin lịch hẹn
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal xác nhận thanh toán -->
+<div class="modal fade" id="confirmPaymentModal" tabindex="-1" style="z-index: 9999;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="z-index: 10000;">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <div class="payment-confirm-icon mb-3">
+                    <i class="bi bi-question-circle"></i>
+                </div>
+                <h5 class="mb-3">Xác nhận thanh toán</h5>
+                <p class="text-muted mb-4">
+                    Bạn có chắc chắn muốn thanh toán bằng<br>
+                    <strong id="selectedMethodText" class="text-primary"></strong>?
+                </p>
+                <div class="d-flex gap-2 justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="z-index: 10001; position: relative;">
+                        Hủy
+                    </button>
+                    <button type="button" class="btn btn-primary" id="confirmPayBtn" style="z-index: 10001; position: relative; pointer-events: auto; cursor: pointer;">
+                        Xác nhận
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Appointment Info Card */
+    .appointment-info-card {
+        background: white;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .info-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+    }
+    .info-header i {
+        font-size: 1.5rem;
+    }
+    .info-header h5 {
+        margin: 0;
+        color: white;
+    }
+    .info-body {
+        padding: 25px;
+        background: #f9fafb;
+    }
+    .info-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px;
+        background: white;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+    }
+    .info-item:last-child {
+        margin-bottom: 0;
+    }
+    .info-label {
+        font-weight: 600;
+        color: #6b7280;
+        font-size: 0.95rem;
+    }
+    .info-value {
+        font-weight: 600;
+        color: #1f2937;
+        font-size: 1rem;
+    }
+    .info-value.text-primary {
+        color: #2563eb !important;
+        font-size: 1.5rem !important;
+    }
+
+    /* Payment Methods */
+    .payment-methods {
+        display: grid;
+        gap: 15px;
+    }
+    .payment-option {
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        position: relative;
+    }
+    .payment-option:hover {
+        border-color: #2563eb;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        transform: translateY(-2px);
+    }
+    .payment-option input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+    }
+    .payment-option input[type="radio"]:checked ~ .payment-content {
+        border-color: #2563eb;
+        background: #eff6ff;
+    }
+    .payment-option input[type="radio"]:checked ~ .payment-content .payment-check {
+        opacity: 1;
+        color: #2563eb;
+    }
+    .payment-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+    .payment-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+    }
+    .payment-details {
+        flex: 1;
+    }
+    .payment-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+    }
+    .payment-desc {
+        color: #6b7280;
+        font-size: 0.9rem;
+    }
+    .payment-check {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        font-size: 1.5rem;
+    }
+
+    /* Bank Info Card */
+    .bank-info-card {
+        background: #fff3cd;
+        border: 2px solid #ffc107;
+        border-radius: 12px;
+        margin-top: 20px;
+        overflow: hidden;
+        animation: slideDown 0.3s ease;
+    }
+    @@keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .bank-info-header {
+        background: #ffc107;
+        color: #000;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+    }
+    .bank-info-body {
+        padding: 20px;
+    }
+    .bank-detail {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px dashed #ffc107;
+    }
+    .bank-detail:last-child {
+        border-bottom: none;
+    }
+    .bank-label {
+        font-weight: 600;
+        color: #856404;
+    }
+    .bank-value {
+        color: #000;
+    }
+    .bank-code {
+        background: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        color: #d63384;
+        font-weight: 600;
+        border: 1px dashed #ffc107;
+    }
+
+    /* Modal Confirm */
+    .payment-confirm-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #eff6ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        font-size: 3rem;
+        color: #2563eb;
+    }
+
+    /* Card Shadow */
+    .card.shadow-sm {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    }
+</style>
+
+@section Scripts {
+<script>
+    (function() {
+        console.log('=== Payment script loading ===');
+        console.log('Bootstrap:', typeof bootstrap !== 'undefined' ? 'Loaded' : 'Not loaded');
+        console.log('jQuery:', typeof $ !== 'undefined' ? 'Loaded' : 'Not loaded');
+        
+        // Wait for DOM to be fully ready
+        function initPaymentScript() {
+            console.log('🔧 Initializing payment script...');
+            
+            // Handle payment submission with modal
+            const submitBtn = document.getElementById('submitBtn');
+            const confirmModalElement = document.getElementById('confirmPaymentModal');
+            const paymentForm = document.getElementById('paymentForm');
+            const confirmPayBtn = document.getElementById('confirmPayBtn');
+            
+            console.log('Elements found:', {
+                submitBtn: !!submitBtn,
+                confirmModalElement: !!confirmModalElement,
+                paymentForm: !!paymentForm,
+                confirmPayBtn: !!confirmPayBtn
+            });
+            
+            if (!submitBtn || !confirmModalElement || !paymentForm || !confirmPayBtn) {
+                console.error('❌ Thiếu elements cần thiết cho payment form');
+                console.error('Missing elements:', {
+                    submitBtn: !submitBtn ? 'MISSING' : 'OK',
+                    confirmModalElement: !confirmModalElement ? 'MISSING' : 'OK',
+                    paymentForm: !paymentForm ? 'MISSING' : 'OK',
+                    confirmPayBtn: !confirmPayBtn ? 'MISSING' : 'OK'
+                });
+                return;
+            }
+
+            let confirmModal;
+            try {
+                confirmModal = new bootstrap.Modal(confirmModalElement, {
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                console.log('✅ Modal initialized successfully');
+            } catch (error) {
+                console.error('❌ Lỗi khởi tạo Bootstrap Modal:', error);
+                return;
+            }
+            
+            // Global function for inline onclick
+            window.handlePaymentConfirm = function() {
+                console.log('🌐 GLOBAL handlePaymentConfirm called!');
+                processPayment();
+            };
+            
+            // Process payment function
+            function processPayment() {
+                console.log('✅ ✅ ✅ PROCESSING PAYMENT! ✅ ✅ ✅');
+                console.log('🚀 Starting form submission process...');
+                
+                // Hide modal first
+                console.log('🎭 Hiding modal...');
+                confirmModal.hide();
+                
+                // Wait for modal animation
+                setTimeout(function() {
+                    console.log('🧹 Cleaning up backdrop...');
+                    
+                    // Remove all backdrops
+                    const backdrops = document.querySelectorAll('.modal-backdrop');
+                    console.log('🔍 Found backdrops:', backdrops.length);
+                    backdrops.forEach(function(backdrop) {
+                        console.log('❌ Removing backdrop:', backdrop);
+                        backdrop.remove();
+                    });
+                    
+                    // Reset body styles
+                    document.body.classList.remove('modal-open');
+                    document.body.style.overflow = '';
+                    document.body.style.paddingRight = '';
+                    
+                    console.log('📤 Submitting form NOW...');
+                    paymentForm.submit();
+                    console.log('✅ Form.submit() called');
+                }, 300);
+            }
+            
+            // Handle submit button click
+            submitBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('🖱️ Submit button clicked');
+                
+                // Get selected payment method
+                const selectedMethod = document.querySelector('input[name="PhuongThuc"]:checked');
+                if (!selectedMethod) {
+                    alert('Vui lòng chọn phương thức thanh toán');
+                    return;
+                }
+
+                // Update modal text with method name
+                const methodNames = {
+                    'TienMat': 'Tiền mặt',
+                    'ChuyenKhoan': 'Chuyển khoản',
+                    'VNPay': 'VNPay',
+                    'TheNganHang': 'Thẻ ngân hàng'
+                };
+                
+                const selectedMethodText = document.getElementById('selectedMethodText');
+                if (selectedMethodText) {
+                    selectedMethodText.textContent = methodNames[selectedMethod.value] || selectedMethod.value;
+                }
+                
+                console.log('📋 Selected payment method:', selectedMethod.value);
+                console.log('🎭 Showing confirmation modal...');
+                confirmModal.show();
+            });
+
+            // Method 1: onclick
+            console.log('🔗 Method 1: Setting .onclick...');
+            confirmPayBtn.onclick = function(e) {
+                console.log('✅ Method 1: onclick triggered!');
+                e.preventDefault();
+                e.stopPropagation();
+                processPayment();
+                return false;
+            };
+            
+            // Method 2: addEventListener
+            console.log('🔗 Method 2: Setting addEventListener...');
+            confirmPayBtn.addEventListener('click', function(e) {
+                console.log('✅ Method 2: addEventListener triggered!');
+                e.preventDefault();
+                e.stopPropagation();
+                processPayment();
+                return false;
+            }, true); // Use capture phase
+            
+            // Method 3: onmousedown (triggers earlier)
+            console.log('� Method 3: Setting onmousedown...');
+            confirmPayBtn.onmousedown = function(e) {
+                console.log('✅ Method 3: onmousedown triggered!');
+            };
+            
+            // Method 4: Check if button is clickable
+            setTimeout(function() {
+                const btnStyle = window.getComputedStyle(confirmPayBtn);
+                console.log('🔍 Button style check:', {
+                    display: btnStyle.display,
+                    visibility: btnStyle.visibility,
+                    pointerEvents: btnStyle.pointerEvents,
+                    zIndex: btnStyle.zIndex,
+                    position: btnStyle.position
+                });
+            }, 100);
+            
+            console.log('✅ All event handlers attached successfully');
+
+            // Xử lý khi modal bị đóng bằng nút X hoặc ESC
+            confirmModalElement.addEventListener('hidden.bs.modal', function () {
+                console.log('🎭 Modal hidden event fired');
+                // Đảm bảo xóa tất cả backdrop
+                setTimeout(function() {
+                    const backdrops = document.querySelectorAll('.modal-backdrop');
+                    console.log('🧹 Cleanup: Found backdrops:', backdrops.length);
+                    backdrops.forEach(backdrop => backdrop.remove());
+                    document.body.classList.remove('modal-open');
+                    document.body.style.overflow = '';
+                    document.body.style.paddingRight = '';
+                }, 100);
+            });
+            
+            console.log('=== ✅ Payment script initialized ===');
+        }
+        
+        // Run immediately and also on DOM ready
+        if (document.readyState === 'loading') {
+            console.log('⏳ Waiting for DOM to be ready...');
+            document.addEventListener('DOMContentLoaded', initPaymentScript);
+        } else {
+            console.log('✅ DOM already ready, initializing now...');
+            initPaymentScript();
+        }
+    })();
+</script>
+}
